@@ -8,7 +8,9 @@
     </header>
     <section id="board-selection" class="mt-4 flex flex-col items-start">
       <h3 class="mb-2 font-bold text-4xl">Your boards:</h3>
-      <button class="mb-6 ml-1 px-2 py-1 bg-emerald-600 rounded-md">Create new board</button>
+      <button
+        class="mb-6 ml-1 px-2 py-1 bg-emerald-600 hover:bg-emerald-700 rounded-md"
+      >Create new board</button>
       <span
         class="ml-1"
         v-if="!boards"
@@ -47,9 +49,26 @@ export default {
 
     let boards = [
       {
-        title: 'joe'
+        id: 1,
+        title: 'joe',
+        lists: [
+          {
+            title: 'pog',
+            cards: [
+              { name: 'test' },
+              { name: 'champ' }
+            ]
+          },
+          {
+            title: 'champ',
+            cards: [
+              { name: 'ok' }
+            ]
+          }
+        ]
       },
       {
+        id: 2,
         title: 'james'
       }
     ]
