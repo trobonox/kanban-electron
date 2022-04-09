@@ -24,6 +24,8 @@
         >{{ board.title }}</a>
       </div>
     </section>
+    <a href="/test">Poggers</a>
+    <nuxt-link to="/test">OIjoiajd</nuxt-link>
   </main>
 </template>
 

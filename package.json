@@ -37,6 +37,7 @@
     "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
-    "electron-store": "^8.0.1"
+    "electron-store": "^8.0.1",
+    "vue-smooth-dnd": "^0.8.1"
   }
 }
