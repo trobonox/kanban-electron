@@ -14,7 +14,7 @@ module.exports = {
   },
   loading: false,
   plugins: [
-
+    '@/plugins/directives.js'
   ],
 
   buildModules: [

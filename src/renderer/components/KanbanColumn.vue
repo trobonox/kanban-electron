@@ -1,10 +1,11 @@
 <template>
-  <div class="flex flex-col bg-zinc-800 p-2 rounded-md w-64">
-    <h1 class="ml-1 font-bold text-lg">{{ title }}</h1>
+  <div class="col-drag flex flex-col bg-zinc-800 p-2 rounded-md w-64">
+    <h1 id="col-drag" class="col-drag ml-1 font-bold text-lg">{{ title }}</h1>
     <Container
       group-name="cards"
       :get-child-payload="getChildPayload"
       @drop="onDrop"
+      :non-drag-area-selector="'nodrag'"
     >
       <Draggable
         v-for="(el, index) in cards"
@@ -31,6 +32,69 @@
         </div>
       </Draggable>
     </Container>
+    <div v-if="cardAddMode" class="flex flex-col mt-2 nodrag">
+      <textarea
+        type="text"
+        placeholder="Enter a card title..."
+        class="
+          h-8
+          mb-2
+          p-1
+          bg-zinc-700
+          rounded-sm
+          nodrag
+          focus:outline-1 focus:outline-emerald-400
+        "
+        v-resizable
+      />
+      <div class="flex flex-row gap-2 w-full justify-start">
+        <button
+          class="px-2 py-1 bg-emerald-600 hover:bg-emerald-700 rounded-md"
+          @click="cardAddMode = !cardAddMode"
+        >
+          Add Card
+        </button>
+        <button
+          @click="cardAddMode = !cardAddMode"
+          class="px-2 py-1 hover:bg-zinc-600 rounded-md"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <div
+      v-if="!cardAddMode"
+      class="
+        nodrag
+        mt-2
+        py-1
+        flex flex-row
+        gap-1
+        font-medium
+        text-gray-200
+        hover:bg-zinc-600
+        rounded-md
+        cursor-pointer
+      "
+      @click="cardAddMode = !cardAddMode"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+        />
+      </svg>
+      <h2>Add Card</h2>
+    </div>
   </div>
 </template>
 
@@ -53,6 +117,7 @@ export default {
   data() {
     return {
       cards: [...this.list],
+      cardAddMode: false,
     };
   },
   methods: {
