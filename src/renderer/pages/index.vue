@@ -1,13 +1,26 @@
 <template>
   <main id="home" class="px-6">
-    <header class="flex flex-col w-full items-center justify-center">
-      <div class="flex flex-col items-center bg-zinc-800 p-6 rounded-md">
-        <h1 class="font-bold text-6xl text-emerald-500">Electron Kanban</h1>
-        <h2>Version 0.1.0-beta made by Trobonox</h2>
-      </div>
+    <header
+      class="
+        flex flex-row
+        w-full
+        items-center
+        justify-between
+        bg-zinc-800
+        py-2
+        px-4
+        rounded-lg
+      "
+    >
+      <a href="/" class="font-bold text-xl text-emerald-500">Kanban Electron</a>
+      <span>Version 0.1.0-beta made by Trobonox</span>
     </header>
-    <section id="board-selection" class="mt-4 mb-10 flex flex-col items-start">
-      <h3 class="mb-2 font-bold text-4xl">Your boards:</h3>
+    <section
+      id="board-selection"
+      class="mt-4 mb-10 ml-2 flex flex-col items-start"
+    >
+      <h4 class="mb-8 font-bold text-4xl">Welcome back!</h4>
+      <h4 class="mb-2 font-medium text-xl">Your boards:</h4>
       <button
         class="
           mb-6
@@ -52,7 +65,7 @@ export default {
       window.open(url);
     },
     createNewBoard() {
-      let old_boards = this.$store.state.storage.get("boards");
+      let old_boards = this.$store.state.storage.get("boards") || [];
 
       let board = {
         id: 1,
