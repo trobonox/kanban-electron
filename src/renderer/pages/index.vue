@@ -9,23 +9,34 @@
     <section id="board-selection" class="mt-4 flex flex-col items-start">
       <h3 class="mb-2 font-bold text-4xl">Your boards:</h3>
       <button
-        class="mb-6 ml-1 px-2 py-1 bg-emerald-600 hover:bg-emerald-700 rounded-md"
-      >Create new board</button>
-      <span
-        class="ml-1"
-        v-if="!boards"
-      >Wowzers! Looks like you have no boards yet! Use the button above to create a new one.</span>
+        class="
+          mb-6
+          ml-1
+          px-2
+          py-1
+          bg-emerald-600
+          hover:bg-emerald-700
+          rounded-md
+        "
+      >
+        Create new board
+      </button>
+      <span class="ml-1" v-if="!boards"
+        >Wowzers! Looks like you have no boards yet! Use the button above to
+        create a new one.</span
+      >
       <div class="flex flex-row gap-4 ml-1" v-else>
         <a
           v-for="board in boards"
           :key="board.id"
           href="#"
           class="p-4 text-lg bg-zinc-800 hover:bg-zinc-700 rounded-md"
-        >{{ board.title }}</a>
+          >{{ board.title }}</a
+        >
       </div>
     </section>
-    <a href="/test">Poggers</a>
-    <nuxt-link to="/test">OIjoiajd</nuxt-link>
+
+    <nuxt-link to="/test">Kanban Testing</nuxt-link>
   </main>
 </template>
 
@@ -38,7 +49,7 @@ export default {
   name: "IndexPage",
   data() {
     return {
-      boards: ''
+      boards: "",
     };
   },
   methods: {
@@ -47,36 +58,31 @@ export default {
     },
   },
   mounted() {
-    console.log(storage.get("boards"))
+    console.log(storage.get("boards"));
 
     let boards = [
       {
         id: 1,
-        title: 'joe',
+        title: "joe",
         lists: [
           {
-            title: 'pog',
-            cards: [
-              { name: 'test' },
-              { name: 'champ' }
-            ]
+            title: "pog",
+            cards: [{ name: "test" }, { name: "champ" }],
           },
           {
-            title: 'champ',
-            cards: [
-              { name: 'ok' }
-            ]
-          }
-        ]
+            title: "champ",
+            cards: [{ name: "ok" }],
+          },
+        ],
       },
       {
         id: 2,
-        title: 'james'
-      }
-    ]
+        title: "james",
+      },
+    ];
 
-    storage.set('boards', boards)
-    this.boards = storage.get("boards")
+    storage.set("boards", boards);
+    this.boards = storage.get("boards");
   },
 };
 </script>
