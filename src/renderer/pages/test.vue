@@ -1,6 +1,9 @@
 <template>
   <div class="px-6">
-    <h1 class="font-bold text-4xl mb-8">Test</h1>
+    <h1 class="font-bold text-4xl mb-2">Test</h1>
+    <a href="/"
+      ><button class="p-2 mb-6 rounded-md bg-emerald-600">Go back home</button>
+    </a>
     <div class="flex flex-row w-full gap-4">
       <Container @drop="onDrop">
         <KanbanColumn />

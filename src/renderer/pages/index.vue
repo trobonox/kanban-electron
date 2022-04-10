@@ -6,7 +6,7 @@
         <h2>Version 0.1.0-beta made by Trobonox</h2>
       </div>
     </header>
-    <section id="board-selection" class="mt-4 flex flex-col items-start">
+    <section id="board-selection" class="mt-4 mb-10 flex flex-col items-start">
       <h3 class="mb-2 font-bold text-4xl">Your boards:</h3>
       <button
         class="
@@ -18,6 +18,7 @@
           hover:bg-emerald-700
           rounded-md
         "
+        @click="createNewBoard"
       >
         Create new board
       </button>
@@ -36,7 +37,9 @@
       </div>
     </section>
 
-    <nuxt-link to="/test">Kanban Testing</nuxt-link>
+    <nuxt-link to="/test" class="ml-1 p-2 bg-emerald-600 rounded-md"
+      >Kanban Testing</nuxt-link
+    >
   </main>
 </template>
 
@@ -49,21 +52,19 @@ export default {
   name: "IndexPage",
   data() {
     return {
-      boards: "",
+      boards: [],
     };
   },
   methods: {
     openURL(url) {
       window.open(url);
     },
-  },
-  mounted() {
-    console.log(storage.get("boards"));
+    createNewBoard() {
+      let old_boards = storage.get("boards");
 
-    let boards = [
-      {
+      let board = {
         id: 1,
-        title: "joe",
+        title: "test board",
         lists: [
           {
             title: "pog",
@@ -74,14 +75,13 @@ export default {
             cards: [{ name: "ok" }],
           },
         ],
-      },
-      {
-        id: 2,
-        title: "james",
-      },
-    ];
-
-    storage.set("boards", boards);
+      };
+      storage.set("boards", [...old_boards, board]);
+      this.boards = storage.get("boards");
+    },
+  },
+  mounted() {
+    console.log(storage.get("boards"));
     this.boards = storage.get("boards");
   },
 };
