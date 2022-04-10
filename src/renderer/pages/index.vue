@@ -68,7 +68,7 @@ export default {
           },
         ],
       };
-      this.store.state.$storage.set("boards", [...old_boards, board]);
+      this.$store.state.storage.set("boards", [...old_boards, board]);
       this.boards = this.$store.state.storage.get("boards");
     },
   },
