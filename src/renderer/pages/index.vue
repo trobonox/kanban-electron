@@ -27,12 +27,12 @@
         create a new one.</span
       >
       <div class="flex flex-row gap-4 ml-1" v-else>
-        <a
+        <nuxt-link
           v-for="board in boards"
           :key="board.id"
-          href="#"
+          :to="'/kanban/' + board.id"
           class="p-4 text-lg bg-zinc-800 hover:bg-zinc-700 rounded-md"
-          >{{ board.title }}</a
+          >{{ board.title }}</nuxt-link
         >
       </div>
     </section>
@@ -44,10 +44,6 @@
 </template>
 
 <script>
-import Store from "electron-store";
-
-const storage = new Store();
-
 export default {
   name: "IndexPage",
   data() {
@@ -60,7 +56,7 @@ export default {
       window.open(url);
     },
     createNewBoard() {
-      let old_boards = storage.get("boards");
+      let old_boards = this.$store.state.storage.get("boards");
 
       let board = {
         id: 1,
@@ -76,13 +72,13 @@ export default {
           },
         ],
       };
-      storage.set("boards", [...old_boards, board]);
-      this.boards = storage.get("boards");
+      this.store.state.$storage.set("boards", [...old_boards, board]);
+      this.boards = this.$store.state.storage.get("boards");
     },
   },
   mounted() {
-    console.log(storage.get("boards"));
-    this.boards = storage.get("boards");
+    console.log(this.$store.state.storage.get("boards"));
+    this.boards = this.$store.state.storage.get("boards");
   },
 };
 </script>
