@@ -2,12 +2,12 @@
   <div class="flex flex-col bg-zinc-800 p-2 rounded-md w-64">
     <h1 class="ml-1 font-bold text-lg">{{ title }}</h1>
     <Container
-      group-name="1"
+      group-name="cards"
       :get-child-payload="getChildPayload"
       @drop="onDrop"
     >
       <Draggable
-        v-for="(el, index) in list"
+        v-for="(el, index) in cards"
         :key="index"
         class="px-3 pt-3 pb-5 mt-3 bg-zinc-700 rounded-sm cursor-pointer"
       >
@@ -40,22 +40,27 @@ import { Container, Draggable } from "vue-smooth-dnd";
 export default {
   name: "KanbanColumn",
   components: { Container, Draggable },
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+    list: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
-      title: "testchamp",
-      list: [
-        { id: 1, name: "joe" },
-        { id: 2, name: "goat" },
-        { id: 3, name: "suiii" },
-      ],
+      cards: [...this.list],
     };
   },
   methods: {
     onDrop(dropResult) {
-      this.list = this.applyDrag(this.list, dropResult);
+      this.cards = this.applyDrag(this.cards, dropResult);
     },
     getChildPayload(index) {
-      return this.list[index];
+      return this.cards[index];
     },
     applyDrag(arr, dragResult) {
       const { removedIndex, addedIndex, payload } = dragResult;

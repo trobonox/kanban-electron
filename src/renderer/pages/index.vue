@@ -72,10 +72,12 @@ export default {
         title: "test board",
         lists: [
           {
+            id: 1,
             title: "pog",
             cards: [{ name: "test" }, { name: "champ" }],
           },
           {
+            id: 2,
             title: "champ",
             cards: [{ name: "ok" }],
           },
