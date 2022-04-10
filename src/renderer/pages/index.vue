@@ -36,10 +36,6 @@
         >
       </div>
     </section>
-
-    <nuxt-link to="/test" class="ml-1 p-2 bg-emerald-600 rounded-md"
-      >Kanban Testing</nuxt-link
-    >
   </main>
 </template>
 
