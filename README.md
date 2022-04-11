@@ -1,4 +1,5 @@
 # kanban-electron
+[![wakatime](https://wakatime.com/badge/user/be365b36-3fc6-4949-a760-a882bf44aad7/project/e222a792-8ba1-4987-97bd-baec10aa63fb.svg)](https://wakatime.com/badge/user/be365b36-3fc6-4949-a760-a882bf44aad7/project/e222a792-8ba1-4987-97bd-baec10aa63fb)
 
 > Kanban board with offline persistence
 
