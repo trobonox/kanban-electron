@@ -22,24 +22,16 @@
       <h4 class="mb-8 font-bold text-4xl">Welcome back!</h4>
       <h4 class="mb-2 font-medium text-xl">Your boards:</h4>
       <button
-        class="
-          mb-6
-          ml-1
-          px-2
-          py-1
-          bg-emerald-600
-          hover:bg-emerald-700
-          rounded-md
-        "
+        class="mb-6 px-2 py-1 bg-emerald-600 hover:bg-emerald-700 rounded-md"
         @click="createNewBoard"
       >
         Create new board
       </button>
-      <span class="ml-1" v-if="!boards"
+      <span v-if="!boards"
         >Wowzers! Looks like you have no boards yet! Use the button above to
         create a new one.</span
       >
-      <div class="flex flex-row gap-4 ml-1" v-else>
+      <div class="flex flex-row gap-4" v-else>
         <nuxt-link
           v-for="board in boards"
           :key="board.id"
@@ -88,7 +80,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.$store.state.storage.get("boards"));
     this.boards = this.$store.state.storage.get("boards");
   },
 };

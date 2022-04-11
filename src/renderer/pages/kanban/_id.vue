@@ -35,8 +35,6 @@ export default {
   methods: {
     onDrop(dropResult) {
       this.board.lists = this.applyDrag(this.board.lists, dropResult);
-      console.log(dropResult);
-      console.log(this.board.lists);
     },
     getChildPayload(index) {
       return this.board.lists[index];
