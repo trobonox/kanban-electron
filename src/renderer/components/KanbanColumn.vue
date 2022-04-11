@@ -15,10 +15,10 @@
       >
         <div class="flex flex-row justify-between">
           <p>{{ el.name }}</p>
-          <div class="cursor-pointer" @click="$emit('click-close', el)">
+          <div class="cursor-pointer" @click="removeCard(index)">
             <!-- eslint-disable-next-line -->
             <svg
-              class="w-4 h-4 text-gray-500"
+              class="w-4 h-4 text-gray-500 hover:text-emerald-600"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -175,6 +175,10 @@ export default {
 
       this.newCardName = "";
       this.cardAddMode = false;
+    },
+
+    removeCard(index) {
+      this.$delete(this.cards, index);
     },
   },
 };
