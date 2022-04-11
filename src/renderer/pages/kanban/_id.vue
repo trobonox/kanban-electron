@@ -18,7 +18,36 @@
           <KanbanColumn :title="column.title" :list="column.cards" />
         </Draggable>
       </Container>
-      <div class="p-2 bg-gray-800 rounded-md">Add Board</div>
+      <div
+        class="
+          w-32
+          flex flex-row
+          gap-2
+          items-center
+          p-2
+          bg-zinc-800
+          hover:bg-zinc-700
+          rounded-md
+          cursor-pointer
+        "
+        @click="addColumn()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+          />
+        </svg>
+        <span>Add Board</span>
+      </div>
     </div>
   </div>
 </template>
@@ -39,9 +68,11 @@ export default {
     onDrop(dropResult) {
       this.board.lists = this.applyDrag(this.board.lists, dropResult);
     },
+
     getChildPayload(index) {
       return this.board.lists[index];
     },
+
     applyDrag(arr, dragResult) {
       const { removedIndex, addedIndex, payload } = dragResult;
       if (removedIndex === null && addedIndex === null) return arr;
@@ -58,6 +89,16 @@ export default {
       }
 
       return result;
+    },
+
+    addColumn() {
+      const column = {
+        id: this.board.lists.length + 1,
+        title: "New Column",
+        cards: [{ name: "Test Card" }],
+      };
+
+      this.$set(this.board.lists, this.board.lists.length, column);
     },
   },
   mounted() {
