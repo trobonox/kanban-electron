@@ -34,8 +34,11 @@
     </Container>
     <div v-if="cardAddMode" class="flex flex-col mt-2 nodrag">
       <textarea
+        id="newCardInput"
+        ref="newCardInput"
         type="text"
         placeholder="Enter a card title..."
+        v-model="newCardName"
         class="
           h-8
           mb-2
@@ -45,17 +48,23 @@
           nodrag
           focus:outline-1 focus:outline-emerald-400
         "
+        @blur="addCard($event)"
+        @keypress.enter="addCard($event)"
         v-resizable
       />
       <div class="flex flex-row gap-2 w-full justify-start">
         <button
+          id="submitButton"
           class="px-2 py-1 bg-emerald-600 hover:bg-emerald-700 rounded-md"
-          @click="cardAddMode = !cardAddMode"
+          @click="addCard($event)"
         >
           Add Card
         </button>
         <button
-          @click="cardAddMode = !cardAddMode"
+          @click="
+            cardAddMode = !cardAddMode;
+            newCardName = '';
+          "
           class="px-2 py-1 hover:bg-zinc-600 rounded-md"
         >
           Cancel
@@ -77,7 +86,10 @@
         rounded-md
         cursor-pointer
       "
-      @click="cardAddMode = !cardAddMode"
+      @click="
+        cardAddMode = !cardAddMode;
+        $nextTick(() => $refs.newCardInput.focus());
+      "
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -118,15 +130,19 @@ export default {
     return {
       cards: [...this.list],
       cardAddMode: false,
+      newCardName: "",
     };
   },
   methods: {
     onDrop(dropResult) {
       this.cards = this.applyDrag(this.cards, dropResult);
+      // TODO: add logic for json saving
     },
+
     getChildPayload(index) {
       return this.cards[index];
     },
+
     applyDrag(arr, dragResult) {
       const { removedIndex, addedIndex, payload } = dragResult;
       if (removedIndex === null && addedIndex === null) return arr;
@@ -143,6 +159,22 @@ export default {
       }
 
       return result;
+    },
+
+    addCard(event) {
+      if (
+        (event.relatedTarget && event.relatedTarget.id === "submitButton") ||
+        event instanceof KeyboardEvent
+      ) {
+        this.$set(
+          this.cards,
+          this.cards.length,
+          JSON.parse(JSON.stringify({ name: this.newCardName }))
+        );
+      }
+
+      this.newCardName = "";
+      this.cardAddMode = false;
     },
   },
 };
