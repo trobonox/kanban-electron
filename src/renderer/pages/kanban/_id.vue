@@ -6,48 +6,59 @@
     <a href="/"
       ><button class="p-2 mb-6 rounded-md bg-emerald-600">Go back home</button>
     </a>
-    <div class="flex flex-row gap-4 w-full items-start justify-start">
+    <div
+      class="
+        flex flex-row
+        gap-4
+        w-full
+        items-start
+        justify-start
+        overflow-x-auto
+      "
+    >
       <Container
         @drop="onDrop"
         group-name="columns"
         :orientation="'horizontal'"
         class="flex-row gap-4"
         :get-child-payload="getChildPayload"
+        :non-drag-area-selector="'nodrag'"
       >
         <Draggable v-for="column in board.lists" :key="column.id">
           <KanbanColumn :title="column.title" :list="column.cards" />
         </Draggable>
-      </Container>
-      <div
-        class="
-          w-32
-          flex flex-row
-          gap-2
-          items-center
-          p-2
-          bg-zinc-800
-          hover:bg-zinc-700
-          rounded-md
-          cursor-pointer
-        "
-        @click="addColumn()"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
+        <div
+          class="
+            nodrag
+            h-min
+            flex flex-row
+            gap-2
+            items-center
+            p-2
+            bg-zinc-800
+            hover:bg-zinc-700
+            rounded-md
+            cursor-pointer
+          "
+          @click="addColumn()"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-          />
-        </svg>
-        <span>Add Board</span>
-      </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            />
+          </svg>
+          <span hidden>Add Board</span>
+        </div>
+      </Container>
     </div>
   </div>
 </template>
