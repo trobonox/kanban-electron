@@ -6,17 +6,20 @@
     <a href="/"
       ><button class="p-2 mb-6 rounded-md bg-emerald-600">Go back home</button>
     </a>
-    <Container
-      @drop="onDrop"
-      group-name="columns"
-      :orientation="'horizontal'"
-      class="flex-row w-full gap-4"
-      :get-child-payload="getChildPayload"
-    >
-      <Draggable v-for="(column, index) in board.lists" :key="index">
-        <KanbanColumn :title="column.title" :list="column.cards" />
-      </Draggable>
-    </Container>
+    <div class="flex flex-row gap-4 w-full items-start justify-start">
+      <Container
+        @drop="onDrop"
+        group-name="columns"
+        :orientation="'horizontal'"
+        class="flex-row gap-4"
+        :get-child-payload="getChildPayload"
+      >
+        <Draggable v-for="column in board.lists" :key="column.id">
+          <KanbanColumn :title="column.title" :list="column.cards" />
+        </Draggable>
+      </Container>
+      <div class="p-2 bg-gray-800 rounded-md">Add Board</div>
+    </div>
   </div>
 </template>
 
