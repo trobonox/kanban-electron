@@ -6,11 +6,12 @@
       :get-child-payload="getChildPayload"
       @drop="onDrop"
       :non-drag-area-selector="'nodrag'"
+      class="max-h-65vh overflow-y-auto mt-2 rounded-sm custom-scrollbar"
     >
       <Draggable
         v-for="(el, index) in cards"
         :key="index"
-        class="px-3 pt-3 pb-5 mt-3 bg-zinc-700 rounded-sm cursor-pointer"
+        class="px-3 pt-3 pb-5 mb-3 bg-zinc-700 rounded-sm cursor-pointer"
       >
         <div class="flex flex-row justify-between">
           <p>{{ el.name }}</p>
@@ -32,7 +33,7 @@
         </div>
       </Draggable>
     </Container>
-    <div v-if="cardAddMode" class="flex flex-col mt-2 nodrag">
+    <div v-if="cardAddMode" class="flex flex-col mt-2">
       <textarea
         id="newCardInput"
         ref="newCardInput"
@@ -75,7 +76,6 @@
     <div
       v-if="!cardAddMode"
       class="
-        nodrag
         mt-2
         py-1
         flex flex-row
