@@ -26,3 +26,22 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #747980;
 }
+
+.custom-scrollbar-horizontal::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+  opacity: 60%;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+
+.custom-scrollbar-horizontal::-webkit-scrollbar-thumb:hover {
+  background: #747980;
+}

@@ -17,6 +17,7 @@
         overflow-x-auto
         z-1
         min-h-[88vh]
+        custom-scrollbar-horizontal
       "
     >
       <Container
