@@ -1,7 +1,34 @@
 <template>
-  <div class="col-drag flex flex-col bg-zinc-800 p-2 rounded-md w-64">
+  <div class="flex flex-col bg-zinc-800 p-2 rounded-md w-64">
     <div class="flex flex-row justify-between items-center">
-      <h1 id="col-drag" class="col-drag ml-1 font-bold text-lg">{{ title }}</h1>
+      <h1
+        v-if="!titleEditing"
+        @click="
+          titleEditing = true;
+          $nextTick(() => $refs.titleInput.focus());
+        "
+        class="ml-1 font-bold text-lg"
+      >
+        {{ titleNew }}
+      </h1>
+      <input
+        ref="titleInput"
+        v-if="titleEditing"
+        type="text"
+        v-model="titleNew"
+        class="
+          mr-2
+          px-2
+          text-lg
+          w-full
+          bg-zinc-700
+          border-2 border-emerald-600 border-dotted
+          outline-none
+          rounded-sm
+        "
+        @blur="titleEditing = false"
+        @keypress.enter="titleEditing = false"
+      />
       <svg
         class="w-4 h-4 text-gray-500 hover:text-emerald-600 cursor-pointer"
         fill="currentColor"
@@ -19,9 +46,9 @@
     <Container
       group-name="cards"
       :get-child-payload="getChildPayload"
-      @drop="onDrop"
       :non-drag-area-selector="'nodrag'"
       class="max-h-65vh overflow-y-auto mt-2 rounded-sm custom-scrollbar"
+      @drop="onDrop"
     >
       <Draggable
         v-for="(el, index) in cards"
@@ -56,13 +83,16 @@
         placeholder="Enter a card title..."
         v-model="newCardName"
         class="
-          h-8
+          h-10
           mb-2
           p-1
           bg-zinc-700
           rounded-sm
           nodrag
-          focus:outline-1 focus:outline-emerald-400
+          focus:border-2
+          focus:border-emerald-600
+          focus:border-dotted
+          focus:outline-none
         "
         @blur="addCard($event)"
         @keypress.enter="addCard($event)"
@@ -148,11 +178,34 @@ export default {
   data() {
     return {
       cards: [...this.list],
-      cardAddMode: false,
       newCardName: "",
+      cardAddMode: false,
+      titleNew: this.title,
+      titleEditing: false,
     };
   },
+  mounted() {
+    this._keyListener = function (e) {
+      if (e.key === "n" && (e.ctrlKey || e.metaKey)) {
+        this.cardAddMode = !this.cardAddMode;
+        this.$nextTick(() => this.$refs.newCardInput.focus());
+      }
+    };
+
+    document.addEventListener("keydown", this._keyListener.bind(this));
+  },
+
+  beforeDestroy() {
+    document.removeEventListener("keydown", this._keyListener);
+  },
+
   methods: {
+    newKeyShortcutListener(event) {
+      if (event.key === "Escape") {
+        this.message = "Escape has been pressed";
+      }
+    },
+
     onDrop(dropResult) {
       this.cards = this.applyDrag(this.cards, dropResult);
       // TODO: add logic for json saving
