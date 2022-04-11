@@ -13,7 +13,7 @@
       class="flex-row w-full gap-4"
       :get-child-payload="getChildPayload"
     >
-      <Draggable v-for="column in board.lists" :key="column.id">
+      <Draggable v-for="(column, index) in board.lists" :key="index">
         <KanbanColumn :title="column.title" :list="column.cards" />
       </Draggable>
     </Container>
@@ -59,7 +59,7 @@ export default {
   },
   mounted() {
     let board_init =
-      this.$store.state.storage.get("boards")[this.$route.params.id - 1];
+      this.$store.state.storage.get("boards")[this.$route.params.id];
 
     this.board = board_init;
   },

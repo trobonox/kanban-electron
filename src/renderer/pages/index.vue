@@ -33,9 +33,9 @@
       >
       <div class="flex flex-row gap-4" v-else>
         <nuxt-link
-          v-for="board in boards"
-          :key="board.id"
-          :to="'/kanban/' + board.id"
+          v-for="(board, index) in boards"
+          :key="index"
+          :to="'/kanban/' + index"
           class="p-4 text-lg bg-zinc-800 hover:bg-zinc-700 rounded-md"
           >{{ board.title }}</nuxt-link
         >
@@ -60,16 +60,13 @@ export default {
       let old_boards = this.$store.state.storage.get("boards") || [];
 
       let board = {
-        id: 1,
         title: "test board",
         lists: [
           {
-            id: 1,
             title: "pog",
             cards: [{ name: "test" }, { name: "champ" }],
           },
           {
-            id: 2,
             title: "champ",
             cards: [{ name: "ok" }],
           },
