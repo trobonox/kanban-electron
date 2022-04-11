@@ -189,6 +189,10 @@ export default {
       if (e.key === "n" && (e.ctrlKey || e.metaKey)) {
         this.cardAddMode = !this.cardAddMode;
         this.$nextTick(() => this.$refs.newCardInput.focus());
+      } else if (e.key === "Escape") {
+        this.cardAddMode = false;
+        this.newCardName = "";
+        this.titleEditing = false;
       }
     };
 
