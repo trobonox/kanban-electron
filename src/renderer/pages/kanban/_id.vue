@@ -25,7 +25,12 @@
         :non-drag-area-selector="'nodrag'"
       >
         <Draggable v-for="column in board.lists" :key="column.id">
-          <KanbanColumn :title="column.title" :list="column.cards" />
+          <KanbanColumn
+            :id="column.id"
+            :title="column.title"
+            :list="column.cards"
+            @removeColumn="removeColumn"
+          />
         </Draggable>
         <div
           class="
@@ -110,6 +115,15 @@ export default {
       };
 
       this.$set(this.board.lists, this.board.lists.length, column);
+    },
+
+    removeColumn(columnID) {
+      const column = this.board.lists.filter((obj) => {
+        return obj.id === columnID;
+      })[0];
+      const columnIndex = this.board.lists.indexOf(column);
+
+      this.$delete(this.board.lists, columnIndex);
     },
   },
   mounted() {

@@ -1,6 +1,21 @@
 <template>
   <div class="col-drag flex flex-col bg-zinc-800 p-2 rounded-md w-64">
-    <h1 id="col-drag" class="col-drag ml-1 font-bold text-lg">{{ title }}</h1>
+    <div class="flex flex-row justify-between items-center">
+      <h1 id="col-drag" class="col-drag ml-1 font-bold text-lg">{{ title }}</h1>
+      <svg
+        class="w-4 h-4 text-gray-500 hover:text-emerald-600 cursor-pointer"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+        @click="$emit('removeColumn', id)"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+    </div>
     <Container
       group-name="cards"
       :get-child-payload="getChildPayload"
@@ -117,6 +132,10 @@ export default {
   name: "KanbanColumn",
   components: { Container, Draggable },
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
