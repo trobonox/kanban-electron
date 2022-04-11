@@ -8,12 +8,15 @@
     </a>
     <div
       class="
+        pb-8
         flex flex-row
         gap-4
         w-full
         items-start
         justify-start
         overflow-x-auto
+        z-1
+        min-h-[88vh]
       "
     >
       <Container

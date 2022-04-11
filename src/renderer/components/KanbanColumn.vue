@@ -1,5 +1,13 @@
 <template>
   <div class="flex flex-col bg-zinc-800 p-2 rounded-md w-64">
+    <KanbanModal
+      v-show="modalVisible"
+      ref="modal"
+      @setCardTitle="setCardTitle"
+      @setCardDescription="setCardDescription"
+      @closeModal="modalVisible = false"
+    />
+
     <div class="flex flex-row justify-between items-center">
       <h1
         v-if="!titleEditing"
@@ -55,7 +63,11 @@
         :key="index"
         class="px-3 pt-3 pb-5 mb-3 bg-zinc-700 rounded-sm cursor-pointer"
       >
-        <div class="flex flex-row justify-between">
+        <div
+          class="flex flex-row justify-between"
+          @click.self="openModal"
+          :id="index"
+        >
           <p>{{ el.name }}</p>
           <div class="cursor-pointer" @click="removeCard(index)">
             <!-- eslint-disable-next-line -->
@@ -157,10 +169,11 @@
 
 <script>
 import { Container, Draggable } from "vue-smooth-dnd";
+import KanbanModal from "~/components/KanbanModal.vue";
 
 export default {
   name: "KanbanColumn",
-  components: { Container, Draggable },
+  components: { Container, Draggable, KanbanModal },
   props: {
     id: {
       type: Number,
@@ -182,6 +195,7 @@ export default {
       cardAddMode: false,
       titleNew: this.title,
       titleEditing: false,
+      modalVisible: false,
     };
   },
   mounted() {
@@ -255,6 +269,21 @@ export default {
 
     removeCard(index) {
       this.$delete(this.cards, index);
+    },
+
+    setCardTitle() {
+      console.log("ok");
+    },
+
+    setCardDescription() {
+      console.log("not ok");
+    },
+
+    openModal(event) {
+      console.log(event);
+      console.log(event.srcElement.attributes.id.nodeValue);
+      this.$refs.modal.initModal(1, "a");
+      this.modalVisible = true;
     },
   },
 };
