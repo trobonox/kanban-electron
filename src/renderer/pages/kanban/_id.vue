@@ -16,7 +16,7 @@
         justify-start
         overflow-x-auto
         z-1
-        min-h-[88vh]
+        min-h-[87vh]
         custom-scrollbar-horizontal
       "
     >
