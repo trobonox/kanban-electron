@@ -32,6 +32,7 @@
           resize-none
           bg-gray-200
           dark:bg-zinc-700
+          pointer-events-auto
         "
       >
       </textarea>

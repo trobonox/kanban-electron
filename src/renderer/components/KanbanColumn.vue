@@ -66,6 +66,7 @@
       :non-drag-area-selector="'nodrag'"
       class="max-h-65vh overflow-y-auto mt-2 rounded-sm custom-scrollbar"
       @drop="onDrop"
+      :drag-handle-selector="dragHandleSelector"
     >
       <Draggable
         v-for="(el, index) in cards"
@@ -205,6 +206,7 @@ export default {
       titleNew: this.title,
       titleEditing: false,
       modalVisible: false,
+      draggingEnabled: true,
     };
   },
   mounted() {
@@ -222,6 +224,14 @@ export default {
   beforeDestroy() {
     document.removeEventListener("keydown", this._keyListener);
   },
+
+  computed: {
+    dragHandleSelector() {
+      if (this.draggingEnabled) return "";
+      else return "joe";
+    },
+  },
+
   methods: {
     newKeyShortcutListener(event) {
       if (event.key === "Escape") {
@@ -289,6 +299,14 @@ export default {
       console.log(event.srcElement.attributes.id.nodeValue);
       this.$refs.modal.initModal(1, "a");
       this.modalVisible = true;
+      this.draggingEnabled = false;
+      this.$emit("modalOpen");
+    },
+
+    closeModal(event) {
+      this.modalVisible = false;
+      this.draggingEnabled = true;
+      this.$emit("modalClose");
     },
   },
 };

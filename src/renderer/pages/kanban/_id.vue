@@ -27,6 +27,7 @@
         class="flex-row gap-4"
         :get-child-payload="getChildPayload"
         :non-drag-area-selector="'nodrag'"
+        :drag-handle-selector="dragHandleSelector"
       >
         <Draggable v-for="column in board.lists" :key="column.id">
           <KanbanColumn
@@ -36,6 +37,8 @@
             :list="column.cards"
             @removeColumn="removeColumn"
             @addColumn="addColumn"
+            @modalOpen="disableDragging()"
+            @modalClose="enableDragging()"
           />
         </Draggable>
         <div
@@ -84,6 +87,7 @@ export default {
   data() {
     return {
       board: [],
+      draggingEnabled: true,
     };
   },
   mounted() {
@@ -138,6 +142,13 @@ export default {
     document.removeEventListener("keydown", this._keyListener);
   },
 
+  computed: {
+    dragHandleSelector() {
+      if (this.draggingEnabled) return "";
+      else return "joe";
+    },
+  },
+
   methods: {
     onDrop(dropResult) {
       this.board.lists = this.applyDrag(this.board.lists, dropResult);
@@ -182,6 +193,14 @@ export default {
       const columnIndex = this.board.lists.indexOf(column);
 
       this.$delete(this.board.lists, columnIndex);
+    },
+
+    enableDragging() {
+      this.draggingEnabled = true;
+    },
+
+    disableDragging() {
+      this.draggingEnabled = false;
     },
   },
 };

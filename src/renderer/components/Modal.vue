@@ -29,6 +29,7 @@
           dark:bg-zinc-800
           shadow-lg
           rounded-md
+          modal-body
         "
       >
         <div class="flex flex-row items-center justify-between w-full">
@@ -36,7 +37,7 @@
             @click="enableTitleEditing"
             v-if="!titleEditing"
             :v-model="modalTitle"
-            class="text-xl font-bold pr-5"
+            class="text-xl font-bold pr-5 pointer-events-auto"
           >
             {{ modalTitle || title }}
           </h1>
@@ -47,7 +48,7 @@
             ref="titleInput"
             type="text"
             v-model="modalTitle"
-            class="text-xl bg-zinc-800 text-gray-100"
+            class="text-xl bg-zinc-800 text-gray-100 pointer-events-auto"
           />
           <div @click="$emit('closeModal')" class="p-1">
             <svg
