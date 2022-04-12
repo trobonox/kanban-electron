@@ -200,10 +200,7 @@ export default {
   },
   mounted() {
     this._keyListener = function (e) {
-      if (e.key === "n" && (e.ctrlKey || e.metaKey)) {
-        this.cardAddMode = !this.cardAddMode;
-        this.$nextTick(() => this.$refs.newCardInput.focus());
-      } else if (e.key === "Escape") {
+      if (e.key === "Escape") {
         this.cardAddMode = false;
         this.newCardName = "";
         this.titleEditing = false;
@@ -216,7 +213,6 @@ export default {
   beforeDestroy() {
     document.removeEventListener("keydown", this._keyListener);
   },
-
   methods: {
     newKeyShortcutListener(event) {
       if (event.key === "Escape") {

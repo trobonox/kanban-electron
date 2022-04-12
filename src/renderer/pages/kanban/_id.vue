@@ -30,10 +30,12 @@
       >
         <Draggable v-for="column in board.lists" :key="column.id">
           <KanbanColumn
+            :ref="'kanbancol' + column.id"
             :id="column.id"
             :title="column.title"
             :list="column.cards"
             @removeColumn="removeColumn"
+            @addColumn="addColumn"
           />
         </Draggable>
         <div
@@ -84,6 +86,58 @@ export default {
       board: [],
     };
   },
+  mounted() {
+    let board_init =
+      this.$store.state.storage.get("boards")[this.$route.params.id];
+
+    this.board = board_init;
+
+    this._keyListener = function (e) {
+      if (e.key === "b" && (e.ctrlKey || e.metaKey)) {
+        // ctrl + b for new board
+        this.addColumn();
+      } else if (e.key === "d" && (e.ctrlKey || e.metaKey)) {
+        // ctrl + d for deleting the last board
+        const columnToDelete = this.board.lists[this.board.lists.length - 1].id;
+        this.removeColumn(columnToDelete);
+      } else if (e.key === "t" && (e.ctrlKey || e.metaKey)) {
+        // ctrl + t for enabling title editing for the last column
+        const columnToEditID = this.board.lists[this.board.lists.length - 1].id;
+        const columnToEditRefName = "kanbancol" + columnToEditID.toString();
+        const titleEditingForLastColumn =
+          this.$refs[columnToEditRefName][0].titleEditing;
+
+        if (titleEditingForLastColumn) return;
+
+        this.$refs[columnToEditRefName][0].titleEditing = true;
+
+        this.$nextTick(() =>
+          this.$refs[columnToEditRefName][0].$refs.titleInput.focus()
+        );
+      } else if (e.key === "n" && (e.ctrlKey || e.metaKey)) {
+        // ctrl + n for new card in the last column
+        const columnToEditID = this.board.lists[this.board.lists.length - 1].id;
+        const columnToEditRefName = "kanbancol" + columnToEditID.toString();
+        const cardAddModeForLastColumn =
+          this.$refs[columnToEditRefName][0].cardAddMode;
+
+        if (cardAddModeForLastColumn) return;
+
+        this.$refs[columnToEditRefName][0].cardAddMode = true;
+
+        this.$nextTick(() =>
+          this.$refs[columnToEditRefName][0].$refs.newCardInput.focus()
+        );
+      }
+    };
+
+    document.addEventListener("keydown", this._keyListener.bind(this));
+  },
+
+  beforeDestroy() {
+    document.removeEventListener("keydown", this._keyListener);
+  },
+
   methods: {
     onDrop(dropResult) {
       this.board.lists = this.applyDrag(this.board.lists, dropResult);
@@ -129,12 +183,6 @@ export default {
 
       this.$delete(this.board.lists, columnIndex);
     },
-  },
-  mounted() {
-    let board_init =
-      this.$store.state.storage.get("boards")[this.$route.params.id];
-
-    this.board = board_init;
   },
 };
 </script>
