@@ -8,14 +8,14 @@
       @closeModal="modalVisible = false"
     />
 
-    <div class="flex flex-row justify-between items-center">
+    <div class="flex flex-row justify-between items-start gap-4">
       <h1
         v-if="!titleEditing"
         @click="
           titleEditing = true;
           $nextTick(() => $refs.titleInput.focus());
         "
-        class="ml-1 font-bold text-lg"
+        class="ml-1 font-bold text-lg break-all"
       >
         {{ titleNew }}
       </h1>
@@ -33,12 +33,21 @@
           border-2 border-emerald-600 border-dotted
           outline-none
           rounded-sm
+          break-all
         "
         @blur="titleEditing = false"
         @keypress.enter="titleEditing = false"
       />
       <svg
-        class="w-4 h-4 text-gray-500 hover:text-emerald-600 cursor-pointer"
+        class="
+          flex-grow-0 flex-shrink-0
+          h-4
+          w-4
+          mt-2
+          text-gray-500
+          hover:text-emerald-600
+          cursor-pointer
+        "
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +77,7 @@
           @click.self="openModal"
           :id="index"
         >
-          <p>{{ el.name }}</p>
+          <p class="break-all">{{ el.name }}</p>
           <div class="cursor-pointer" @click="removeCard(index)">
             <!-- eslint-disable-next-line -->
             <svg
