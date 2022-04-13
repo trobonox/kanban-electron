@@ -1,8 +1,41 @@
 <template>
   <div class="px-6">
-    <h1 class="font-bold text-4xl mb-2">
-      {{ board.title }}
+    <h1
+      v-if="!boardTitleEditing"
+      class="font-bold text-4xl mb-2"
+      @click="
+        boardTitleEditing = true;
+        $nextTick(() => $refs.boardTitleInput.focus());
+      "
+    >
+      {{ boardTitle }}
     </h1>
+    <input
+      ref="boardTitleInput"
+      v-if="boardTitleEditing"
+      type="text"
+      v-model="boardTitle"
+      class="
+        mr-2
+        mb-2
+        px-2
+        text-4xl
+        w-full
+        bg-zinc-700
+        border-2 border-emerald-600 border-dotted
+        outline-none
+        rounded-sm
+        break-all
+      "
+      @blur="
+        boardTitleEditing = false;
+        updateBoardTitleStorage();
+      "
+      @keypress.enter="
+        boardTitleEditing = false;
+        updateBoardTitleStorage();
+      "
+    />
     <div class="flex flex-row gap-4">
       <nuxt-link to="/"
         ><button
@@ -101,6 +134,8 @@ export default {
     return {
       board: [],
       draggingEnabled: true,
+      boardTitle: "",
+      boardTitleEditing: false,
     };
   },
   mounted() {
@@ -108,6 +143,7 @@ export default {
       this.$store.state.storage.get("boards")[this.$route.params.id];
 
     this.board = board_init;
+    this.boardTitle = this.board.title;
 
     this._keyListener = function (e) {
       if (e.key === "b" && (e.ctrlKey || e.metaKey)) {
@@ -250,6 +286,12 @@ export default {
 
       board.lists[columnIndex] = columnRef;
 
+      this.$store.state.storage.set("boards", [...boards, this.board]);
+    },
+
+    updateBoardTitleStorage() {
+      const boards = this.boardsWithoutCurrent();
+      this.board.title = this.boardTitle;
       this.$store.state.storage.set("boards", [...boards, this.board]);
     },
   },
