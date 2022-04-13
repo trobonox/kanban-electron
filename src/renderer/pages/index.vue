@@ -27,7 +27,7 @@
       >
         Create new board
       </button>
-      <span v-if="!boards || boards == []"
+      <span v-if="!boards || boards.length == 0"
         >Wowzers! Looks like you have no boards yet! Use the button above to
         create a new one.</span
       >
@@ -88,7 +88,7 @@ export default {
     },
   },
   mounted() {
-    this.boards = this.$store.state.storage.get("boards");
+    this.boards = this.$store.state.storage.get("boards") || [];
   },
 };
 </script>
