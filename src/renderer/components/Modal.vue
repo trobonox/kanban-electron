@@ -48,7 +48,16 @@
             ref="titleInput"
             type="text"
             v-model="modalTitle"
-            class="text-xl bg-zinc-800 text-gray-100 pointer-events-auto"
+            class="
+              text-xl
+              bg-zinc-800
+              text-gray-100
+              focus:border-2
+              focus:border-emerald-600
+              focus:border-dotted
+              focus:outline-none
+              pointer-events-auto
+            "
           />
           <div @click="$emit('closeModal')" class="p-1">
             <svg
