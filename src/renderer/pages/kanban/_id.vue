@@ -3,9 +3,21 @@
     <h1 class="font-bold text-4xl mb-2">
       {{ board.title }}
     </h1>
-    <a href="/"
-      ><button class="p-2 mb-6 rounded-md bg-emerald-600">Go back home</button>
-    </a>
+    <div class="flex flex-row gap-4">
+      <a href="/"
+        ><button
+          class="p-2 mb-6 rounded-md bg-emerald-600 hover:bg-emerald-700"
+        >
+          Go back home
+        </button>
+      </a>
+      <button
+        class="p-2 mb-6 rounded-md bg-emerald-600 hover:bg-emerald-700"
+        @click="deleteBoard(board)"
+      >
+        Delete Board
+      </button>
+    </div>
     <div
       class="
         pb-8
@@ -201,6 +213,13 @@ export default {
 
     disableDragging() {
       this.draggingEnabled = false;
+    },
+
+    deleteBoard(boardReference) {
+      const boards = JSON.stringify(this.$store.state.storage.get("boards"));
+      const board = JSON.stringify(boardReference);
+
+      // TODO: add logic for actually deleting (add when all other parts of persistence are done to prevent weird behaviour)
     },
   },
 };
