@@ -189,7 +189,7 @@ export default {
     },
 
     addColumn() {
-      const boards = this.updateStorage();
+      const boards = this.boardsWithoutCurrent();
 
       const column = {
         id: this.board.lists.length + 1,
@@ -202,7 +202,7 @@ export default {
     },
 
     removeColumn(columnID) {
-      const boards = this.updateStorage();
+      const boards = this.boardsWithoutCurrent();
 
       const column = this.board.lists.filter((obj) => {
         return obj.id === columnID;
@@ -221,14 +221,14 @@ export default {
       this.draggingEnabled = false;
     },
 
-    updateStorage() {
+    boardsWithoutCurrent() {
       let boards = this.$store.state.storage.get("boards");
       boards.splice(this.$route.params.id, 1);
       return boards;
     },
 
     deleteBoard() {
-      const boards = this.updateStorage();
+      const boards = this.boardsWithoutCurrent();
       this.$store.state.storage.set("boards", boards);
       this.$router.push("/");
     },
