@@ -163,7 +163,11 @@ export default {
 
   methods: {
     onDrop(dropResult) {
+      const boards = this.boardsWithoutCurrent();
+
       this.board.lists = this.applyDrag(this.board.lists, dropResult);
+
+      this.$store.state.storage.set("boards", [...boards, this.board]);
     },
 
     getChildPayload(index) {
