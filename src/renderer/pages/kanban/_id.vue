@@ -13,7 +13,7 @@
       </a>
       <button
         class="p-2 mb-6 rounded-md bg-emerald-600 hover:bg-emerald-700"
-        @click="deleteBoard(board)"
+        @click="deleteBoard"
       >
         Delete Board
       </button>
@@ -215,11 +215,12 @@ export default {
       this.draggingEnabled = false;
     },
 
-    deleteBoard(boardReference) {
-      const boards = JSON.stringify(this.$store.state.storage.get("boards"));
-      const board = JSON.stringify(boardReference);
+    deleteBoard() {
+      const boards = this.$store.state.storage.get("boards");
+      boards.splice(this.$route.params.id, 1);
 
-      // TODO: add logic for actually deleting (add when all other parts of persistence are done to prevent weird behaviour)
+      this.$store.state.storage.set("boards", boards);
+      this.$router.push("/");
     },
   },
 };
