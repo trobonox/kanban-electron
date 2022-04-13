@@ -286,8 +286,8 @@ export default {
       this.$delete(this.cards, index);
     },
 
-    setCardTitle() {
-      console.log("ok");
+    setCardTitle(cardIndex, title) {
+      this.cards[cardIndex].name = title;
     },
 
     setCardDescription() {
@@ -295,9 +295,10 @@ export default {
     },
 
     openModal(event) {
-      console.log(event);
-      console.log(event.srcElement.attributes.id.nodeValue);
-      this.$refs.modal.initModal(1, "a");
+      const cardIndex = parseInt(event.srcElement.attributes.id.nodeValue);
+      const cardTitle = this.cards[cardIndex].name;
+
+      this.$refs.modal.initModal(cardIndex, cardTitle);
       this.modalVisible = true;
       this.draggingEnabled = false;
       this.$emit("modalOpen");
