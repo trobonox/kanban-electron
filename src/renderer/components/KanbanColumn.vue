@@ -35,8 +35,14 @@
           rounded-sm
           break-all
         "
-        @blur="titleEditing = false"
-        @keypress.enter="titleEditing = false"
+        @blur="
+          titleEditing = false;
+          updateStorage();
+        "
+        @keypress.enter="
+          titleEditing = false;
+          updateStorage();
+        "
       />
       <svg
         class="
@@ -231,15 +237,9 @@ export default {
   },
 
   methods: {
-    newKeyShortcutListener(event) {
-      if (event.key === "Escape") {
-        this.message = "Escape has been pressed";
-      }
-    },
-
     onDrop(dropResult) {
       this.cards = this.applyDrag(this.cards, dropResult);
-      // TODO: add logic for json saving
+      this.updateStorage();
     },
 
     getChildPayload(index) {
@@ -278,18 +278,22 @@ export default {
 
       this.newCardName = "";
       this.cardAddMode = false;
+      this.updateStorage();
     },
 
     removeCard(index) {
       this.$delete(this.cards, index);
+      this.updateStorage();
     },
 
     setCardTitle(cardIndex, title) {
       this.cards[cardIndex].name = title;
+      this.updateStorage();
     },
 
     setCardDescription(cardIndex, description) {
       this.cards[cardIndex].description = description;
+      this.updateStorage();
     },
 
     openModal(event) {
@@ -307,6 +311,16 @@ export default {
       this.modalVisible = false;
       this.draggingEnabled = true;
       this.$emit("modalClose");
+    },
+
+    updateStorage() {
+      const column = {
+        id: this.id,
+        title: this.titleNew,
+        cards: this.cards,
+      };
+
+      this.$emit("updateStorage", column);
     },
   },
 };

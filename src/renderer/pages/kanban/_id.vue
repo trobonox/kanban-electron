@@ -51,6 +51,7 @@
             @addColumn="addColumn"
             @modalOpen="disableDragging()"
             @modalClose="enableDragging()"
+            @updateStorage="updateStorage"
           />
         </Draggable>
         <div
@@ -235,6 +236,21 @@ export default {
       const boards = this.boardsWithoutCurrent();
       this.$store.state.storage.set("boards", boards);
       this.$router.push("/");
+    },
+
+    updateStorage(columnRef) {
+      const boards = this.boardsWithoutCurrent();
+
+      let board = this.board;
+
+      const column = this.board.lists.filter((obj) => {
+        return obj.id === columnRef.id;
+      })[0];
+      const columnIndex = this.board.lists.indexOf(column);
+
+      board.lists[columnIndex] = columnRef;
+
+      this.$store.state.storage.set("boards", [...boards, this.board]);
     },
   },
 };
