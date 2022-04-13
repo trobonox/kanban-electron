@@ -311,7 +311,7 @@ export default {
       const eventNew = {
         srcElement: event.srcElement.parentElement,
       };
-      await this.openModal(eventNew);
+      this.openModal(eventNew);
     },
 
     closeModal() {
