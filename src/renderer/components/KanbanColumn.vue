@@ -15,7 +15,7 @@
           titleEditing = true;
           $nextTick(() => $refs.titleInput.focus());
         "
-        class="ml-1 font-bold text-lg break-all"
+        class="ml-1 font-bold text-lg break-words"
       >
         {{ titleNew }}
       </h1>
@@ -33,7 +33,7 @@
           border-2 border-emerald-600 border-dotted
           outline-none
           rounded-sm
-          break-all
+          break-words
         "
         @blur="
           titleEditing = false;
