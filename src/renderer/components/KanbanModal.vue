@@ -32,6 +32,10 @@
           resize-none
           bg-gray-200
           dark:bg-zinc-700
+          focus:border-2
+          focus:border-emerald-600
+          focus:border-dotted
+          focus:outline-none
           pointer-events-auto
         "
       >
