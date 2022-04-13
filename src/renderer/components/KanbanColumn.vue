@@ -76,10 +76,10 @@
       <Draggable
         v-for="(el, index) in cards"
         :key="index"
-        class="px-3 pt-3 pb-5 mb-3 bg-zinc-700 rounded-sm cursor-pointer"
+        class="px-3 pt-3 pb-5 mb-3 bg-zinc-700 rounded-sm cursor-grab"
       >
         <div
-          class="flex flex-row justify-between"
+          class="flex flex-row justify-between cursor-pointer"
           @click.self="openModal"
           :id="index"
         >
