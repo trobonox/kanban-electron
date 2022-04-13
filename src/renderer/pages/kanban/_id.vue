@@ -189,6 +189,8 @@ export default {
     },
 
     addColumn() {
+      const boards = this.updateStorage();
+
       const column = {
         id: this.board.lists.length + 1,
         title: "New Column",
@@ -196,6 +198,7 @@ export default {
       };
 
       this.$set(this.board.lists, this.board.lists.length, column);
+      this.$store.state.storage.set("boards", [...boards, this.board]);
     },
 
     removeColumn(columnID) {
@@ -215,10 +218,14 @@ export default {
       this.draggingEnabled = false;
     },
 
-    deleteBoard() {
-      const boards = this.$store.state.storage.get("boards");
+    updateStorage() {
+      let boards = this.$store.state.storage.get("boards");
       boards.splice(this.$route.params.id, 1);
+      return boards;
+    },
 
+    deleteBoard() {
+      const boards = this.updateStorage();
       this.$store.state.storage.set("boards", boards);
       this.$router.push("/");
     },
