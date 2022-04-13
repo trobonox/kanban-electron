@@ -103,7 +103,7 @@
         placeholder="Enter a card title..."
         v-model="newCardName"
         class="
-          h-10
+          h-12
           mb-2
           p-1
           bg-zinc-700
@@ -112,6 +112,7 @@
           focus:border-emerald-600
           focus:border-dotted
           focus:outline-none
+          overflow-hidden
         "
         @blur="addCard($event)"
         @keypress.enter="addCard($event)"
