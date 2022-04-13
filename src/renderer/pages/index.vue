@@ -60,27 +60,26 @@ export default {
       let old_boards = this.$store.state.storage.get("boards") || [];
 
       let board = {
-        title: "test board",
+        title: "New Board",
         lists: [
           {
             id: 1,
-            title: "pog",
+            title: "New Column 1",
             cards: [
               {
-                name: "test",
-                description:
-                  "as the name of this card states, it is being used for testing purposes",
+                name: "Example Card 1",
+                description: "",
               },
               {
-                name: "champ",
-                description: "champ as the short version of champion!",
+                name: "Example Card 2",
+                description: "",
               },
             ],
           },
           {
             id: 2,
-            title: "champ",
-            cards: [{ name: "ok", description: "this is a very epic card" }],
+            title: "New Column 2",
+            cards: [{ name: "Example Card 3", description: "" }],
           },
         ],
       };

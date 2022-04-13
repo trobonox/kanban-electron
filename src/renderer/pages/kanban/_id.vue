@@ -4,13 +4,13 @@
       {{ board.title }}
     </h1>
     <div class="flex flex-row gap-4">
-      <a href="/"
+      <nuxt-link to="/"
         ><button
           class="p-2 mb-6 rounded-md bg-emerald-600 hover:bg-emerald-700"
         >
           Go back home
         </button>
-      </a>
+      </nuxt-link>
       <button
         class="p-2 mb-6 rounded-md bg-emerald-600 hover:bg-emerald-700"
         @click="deleteBoard"
