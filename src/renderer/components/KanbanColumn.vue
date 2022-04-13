@@ -83,7 +83,7 @@
           @click.self="openModal"
           :id="index"
         >
-          <p class="break-all">{{ el.name }}</p>
+          <p class="break-all" @click="openModalFromChild">{{ el.name }}</p>
           <div class="cursor-pointer" @click="removeCard(index)">
             <svg
               class="w-4 h-4 text-gray-500 hover:text-emerald-600"
@@ -305,6 +305,13 @@ export default {
       this.modalVisible = true;
       this.draggingEnabled = false;
       this.$emit("modalOpen");
+    },
+
+    openModalFromChild(event) {
+      const eventNew = {
+        srcElement: event.srcElement.parentElement,
+      };
+      await this.openModal(eventNew);
     },
 
     closeModal() {
