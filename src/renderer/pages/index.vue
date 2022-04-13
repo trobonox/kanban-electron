@@ -65,12 +65,22 @@ export default {
           {
             id: 1,
             title: "pog",
-            cards: [{ name: "test" }, { name: "champ" }],
+            cards: [
+              {
+                name: "test",
+                description:
+                  "as the name of this card states, it is being used for testing purposes",
+              },
+              {
+                name: "champ",
+                description: "champ as the short version of champion!",
+              },
+            ],
           },
           {
             id: 2,
             title: "champ",
-            cards: [{ name: "ok" }],
+            cards: [{ name: "ok", description: "this is a very epic card" }],
           },
         ],
       };

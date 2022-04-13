@@ -5,7 +5,7 @@
       ref="modal"
       @setCardTitle="setCardTitle"
       @setCardDescription="setCardDescription"
-      @closeModal="modalVisible = false"
+      @closeModal="closeModal"
     />
 
     <div class="flex flex-row justify-between items-start gap-4">
@@ -63,7 +63,6 @@
     <Container
       group-name="cards"
       :get-child-payload="getChildPayload"
-      :non-drag-area-selector="'nodrag'"
       class="max-h-65vh overflow-y-auto mt-2 rounded-sm custom-scrollbar"
       @drop="onDrop"
       :drag-handle-selector="dragHandleSelector"
@@ -80,7 +79,6 @@
         >
           <p class="break-all">{{ el.name }}</p>
           <div class="cursor-pointer" @click="removeCard(index)">
-            <!-- eslint-disable-next-line -->
             <svg
               class="w-4 h-4 text-gray-500 hover:text-emerald-600"
               fill="currentColor"
@@ -110,7 +108,6 @@
           p-1
           bg-zinc-700
           rounded-sm
-          nodrag
           focus:border-2
           focus:border-emerald-600
           focus:border-dotted
@@ -227,8 +224,8 @@ export default {
 
   computed: {
     dragHandleSelector() {
-      if (this.draggingEnabled) return "";
-      else return "joe";
+      if (!this.draggingEnabled) return "joe";
+      else return "";
     },
   },
 
@@ -297,17 +294,20 @@ export default {
     openModal(event) {
       const cardIndex = parseInt(event.srcElement.attributes.id.nodeValue);
       const cardTitle = this.cards[cardIndex].name;
+      const cardDescription = this.cards[cardIndex].description;
 
-      this.$refs.modal.initModal(cardIndex, cardTitle);
+      this.$refs.modal.initModal(cardIndex, cardTitle, cardDescription);
       this.modalVisible = true;
       this.draggingEnabled = false;
       this.$emit("modalOpen");
     },
 
-    closeModal(event) {
+    closeModal() {
+      //const { getCurrentWindow } = require("electron").remote;
       this.modalVisible = false;
       this.draggingEnabled = true;
       this.$emit("modalClose");
+      //getCurrentWindow().reload();
     },
   },
 };

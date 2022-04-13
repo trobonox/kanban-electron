@@ -37,7 +37,7 @@
             @click="enableTitleEditing"
             v-if="!titleEditing"
             :v-model="modalTitle"
-            class="text-xl font-bold pr-5 pointer-events-auto"
+            class="text-2xl font-bold pr-5 pointer-events-auto"
           >
             {{ modalTitle || title }}
           </h1>

@@ -53,9 +53,10 @@ export default {
     };
   },
   methods: {
-    initModal(cardID, title) {
+    initModal(cardID, title, description) {
       this.cardId = cardID;
       this.title = title;
+      this.description = description;
       this.$refs.barebonesModal.setTitle(title);
     },
     updateDescription(event) {
