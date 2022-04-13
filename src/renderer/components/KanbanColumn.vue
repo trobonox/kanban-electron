@@ -288,8 +288,8 @@ export default {
       this.cards[cardIndex].name = title;
     },
 
-    setCardDescription() {
-      console.log("not ok");
+    setCardDescription(cardIndex, description) {
+      this.cards[cardIndex].description = description;
     },
 
     openModal(event) {
@@ -304,11 +304,9 @@ export default {
     },
 
     closeModal() {
-      //const { getCurrentWindow } = require("electron").remote;
       this.modalVisible = false;
       this.draggingEnabled = true;
       this.$emit("modalClose");
-      //getCurrentWindow().reload();
     },
   },
 };
