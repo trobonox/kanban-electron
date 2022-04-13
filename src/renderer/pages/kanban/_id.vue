@@ -202,12 +202,15 @@ export default {
     },
 
     removeColumn(columnID) {
+      const boards = this.updateStorage();
+
       const column = this.board.lists.filter((obj) => {
         return obj.id === columnID;
       })[0];
       const columnIndex = this.board.lists.indexOf(column);
 
       this.$delete(this.board.lists, columnIndex);
+      this.$store.state.storage.set("boards", [...boards, this.board]);
     },
 
     enableDragging() {
