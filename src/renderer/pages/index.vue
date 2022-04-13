@@ -27,7 +27,7 @@
       >
         Create new board
       </button>
-      <span v-if="!boards"
+      <span v-if="!boards || boards == []"
         >Wowzers! Looks like you have no boards yet! Use the button above to
         create a new one.</span
       >
