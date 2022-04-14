@@ -77,6 +77,10 @@ export default {
   border-color: var(--accent);
 }
 
+.text-accent {
+  color: var(--accent);
+}
+
 .text-accent-hover:hover {
   color: var(--accent);
 }

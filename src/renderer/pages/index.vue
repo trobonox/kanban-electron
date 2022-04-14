@@ -6,13 +6,13 @@
         w-full
         items-center
         justify-between
-        bg-zinc-800
+        bg-elevation-1
         py-2
         px-4
         rounded-lg
       "
     >
-      <a href="/" class="font-bold text-xl text-emerald-500">Kanban Electron</a>
+      <a href="/" class="font-bold text-xl text-accent">Kanban Electron</a>
       <span>Version 0.1.0-beta made by Trobonox</span>
     </header>
     <section
@@ -22,7 +22,7 @@
       <h4 class="mb-8 font-bold text-4xl">Welcome back!</h4>
       <h4 class="mb-2 font-medium text-xl">Your boards:</h4>
       <button
-        class="mb-6 px-2 py-1 bg-emerald-600 hover:bg-emerald-700 rounded-md"
+        class="mb-6 px-2 py-1 text-buttons bg-accent rounded-md"
         @click="createNewBoard"
       >
         Create new board
@@ -36,7 +36,7 @@
           v-for="(board, index) in boards"
           :key="index"
           :to="'/kanban/' + index"
-          class="p-4 text-lg bg-zinc-800 hover:bg-zinc-700 rounded-md"
+          class="p-4 text-lg bg-elevation-1 bg-elevation-2-hover rounded-md"
           >{{ board.title }}</nuxt-link
         >
       </div>
