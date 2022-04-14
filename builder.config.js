@@ -1,4 +1,4 @@
-const ICONS_DIR = 'build/icons/'
+const ICONS_DIR = 'assets/icons/'
 
 const windowsOS = {
   win: {
