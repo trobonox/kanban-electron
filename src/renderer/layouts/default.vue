@@ -39,4 +39,24 @@ export default {
   background-color: var(--bg-primary);
   color: var(--text);
 }
+
+.bg-elevation-1 {
+  background-color: var(--elevation-1);
+}
+
+.bg-elevation-2-hover:hover {
+  background-color: var(--elevation-2);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-accent:hover {
+  background-color: var(--accent-darker);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
 </style>
