@@ -21,8 +21,8 @@
         px-2
         text-4xl
         w-full
-        bg-zinc-700
-        border-2 border-emerald-600 border-dotted
+        bg-elevation-1
+        border-2 border-dotted border-accent
         outline-none
         rounded-sm
         break-all
@@ -38,16 +38,9 @@
     />
     <div class="flex flex-row gap-4">
       <nuxt-link to="/"
-        ><button
-          class="p-2 mb-6 rounded-md bg-emerald-600 hover:bg-emerald-700"
-        >
-          Go back home
-        </button>
+        ><button class="p-2 mb-6 rounded-md bg-accent">Go back home</button>
       </nuxt-link>
-      <button
-        class="p-2 mb-6 rounded-md bg-emerald-600 hover:bg-emerald-700"
-        @click="deleteBoard"
-      >
+      <button class="p-2 mb-6 rounded-md bg-accent" @click="deleteBoard">
         Delete Board
       </button>
     </div>
@@ -95,8 +88,7 @@
             gap-2
             items-center
             p-2
-            bg-zinc-800
-            hover:bg-zinc-700
+            bg-elevation-1 bg-elevation-2-hover
             rounded-md
             cursor-pointer
           "
@@ -301,5 +293,25 @@ export default {
 <style>
 .smooth-dnd-container.horizontal {
   display: flex;
+}
+
+.bg-elevation-1 {
+  background-color: var(--elevation-1);
+}
+
+.bg-elevation-2-hover:hover {
+  background-color: var(--elevation-2);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.bg-accent:hover {
+  background-color: var(--accent-darker);
+}
+
+.border-accent {
+  border-color: var(--accent);
 }
 </style>
