@@ -11,8 +11,7 @@
         inset-0
         w-screen
         h-screen
-        bg-clip-padding bg-zinc-200 bg-opacity-30
-        dark:bg-zinc-800 dark:bg-opacity-40
+        bg-clip-padding bg-zinc-800 bg-opacity-40
         backdrop-filter backdrop-blur-xl
       "
     >
@@ -25,8 +24,7 @@
           py-4
           pl-8
           pr-6
-          bg-zinc-100
-          dark:bg-zinc-800
+          bg-elevation-1
           shadow-lg
           rounded-md
           modal-body
@@ -50,18 +48,17 @@
             v-model="modalTitle"
             class="
               text-xl
-              bg-zinc-800
-              text-gray-100
+              bg-elevation-2
+              text-normal
               focus:border-2
-              focus:border-emerald-600
-              focus:border-dotted
-              focus:outline-none
+              border-accent-focus
+              focus:border-dotted focus:outline-none
               pointer-events-auto
             "
           />
           <div @click="$emit('closeModal')" class="p-1">
             <svg
-              class="w-6 h-6 text-gray-500 hover:text-indigo-500"
+              class="w-6 h-6 text-dim-4 text-accent-hover"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

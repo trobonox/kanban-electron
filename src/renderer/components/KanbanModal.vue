@@ -7,7 +7,7 @@
     @closeModal="$emit('closeModal')"
   >
     <template v-slot:content>
-      <span class="text-md text-zinc-500 dark:text-zinc-400 mb-6"
+      <span class="text-md text-dim-3 mb-6"
         >Edit all the things about your card!</span
       >
       <label for="cardDescription" class="text-lg font-semibold"
@@ -30,12 +30,10 @@
           w-11/12
           h-40
           resize-none
-          bg-gray-200
-          dark:bg-zinc-700
+          bg-elevation-2
           focus:border-2
-          focus:border-emerald-600
-          focus:border-dotted
-          focus:outline-none
+          border-accent-focus
+          focus:border-dotted focus:outline-none
           pointer-events-auto
         "
       >

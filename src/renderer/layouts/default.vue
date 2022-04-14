@@ -85,6 +85,10 @@ export default {
   color: var(--accent);
 }
 
+.text-normal {
+  color: var(--text);
+}
+
 .text-dim-1 {
   color: var(--text-dim-1);
 }
