@@ -28,6 +28,10 @@ export default {
         "--accent": this.colors.accent || "#059669",
         "--accent-darker": this.colors.accentDarker || "#047857",
         "--text": this.colors.text || "#f4f4f5",
+        "--text-dim-1": this.colors.textD1 || "",
+        "--text-dim-2": this.colors.textD2 || "",
+        "--text-dim-3": this.colors.textD3 || "",
+        "--text-dim-4": this.colors.textD4 || "",
       };
     },
   },
@@ -44,8 +48,16 @@ export default {
   background-color: var(--elevation-1);
 }
 
+.bg-elevation-2 {
+  background-color: var(--elevation-2);
+}
+
 .bg-elevation-2-hover:hover {
   background-color: var(--elevation-2);
+}
+
+.bg-elevation-3-hover:hover {
+  background-color: var(--elevation-3);
 }
 
 .bg-accent {
@@ -58,5 +70,21 @@ export default {
 
 .border-accent {
   border-color: var(--accent);
+}
+
+.border-accent-focus:focus {
+  border-color: var(--accent);
+}
+
+.text-accent-hover:hover {
+  color: var(--accent);
+}
+
+.text-dim-1 {
+  color: var(--text-dim-1);
+}
+
+.text-dim-4 {
+  color: var(--text-dim-4);
 }
 </style>

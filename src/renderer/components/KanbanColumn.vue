@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col bg-zinc-800 p-2 rounded-md w-64">
+  <div class="flex flex-col bg-elevation-1 p-2 rounded-md w-64">
     <KanbanModal
       v-show="modalVisible"
       ref="modal"
@@ -29,8 +29,8 @@
           px-2
           text-lg
           w-full
-          bg-zinc-700
-          border-2 border-emerald-600 border-dotted
+          bg-elevation-2
+          border-2 border-dotted border-accent
           outline-none
           rounded-sm
           break-words
@@ -50,8 +50,7 @@
           h-4
           w-4
           mt-2
-          text-gray-500
-          hover:text-emerald-600
+          text-dim-4 text-accent-hover
           cursor-pointer
         "
         fill="currentColor"
@@ -76,7 +75,7 @@
       <Draggable
         v-for="(el, index) in cards"
         :key="index"
-        class="px-3 pt-3 pb-5 mb-3 bg-zinc-700 rounded-sm cursor-grab"
+        class="px-3 pt-3 pb-5 mb-3 bg-elevation-2 rounded-sm cursor-grab"
       >
         <div
           class="flex flex-row justify-between cursor-pointer"
@@ -112,12 +111,11 @@
           h-12
           mb-2
           p-1
-          bg-zinc-700
+          bg-elevation-2
           rounded-sm
           focus:border-2
-          focus:border-emerald-600
-          focus:border-dotted
-          focus:outline-none
+          border-accent-focus
+          focus:border-dotted focus:outline-none
           overflow-hidden
         "
         @blur="addCard($event)"
@@ -127,7 +125,7 @@
       <div class="flex flex-row gap-2 w-full justify-start">
         <button
           id="submitButton"
-          class="px-2 py-1 bg-emerald-600 hover:bg-emerald-700 rounded-md"
+          class="px-2 py-1 bg-accent rounded-md"
           @click="addCard($event)"
         >
           Add Card
@@ -137,7 +135,7 @@
             cardAddMode = !cardAddMode;
             newCardName = '';
           "
-          class="px-2 py-1 hover:bg-zinc-600 rounded-md"
+          class="px-2 py-1 bg-elevation-3-hover rounded-md"
         >
           Cancel
         </button>
@@ -152,8 +150,8 @@
         flex flex-row
         gap-1
         font-medium
-        text-gray-200
-        hover:bg-zinc-600
+        text-dim-1
+        bg-elevation-3-hover
         rounded-md
         cursor-pointer
       "
