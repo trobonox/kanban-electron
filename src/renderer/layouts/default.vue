@@ -32,6 +32,7 @@ export default {
         "--text-dim-2": this.colors.textD2 || "",
         "--text-dim-3": this.colors.textD3 || "",
         "--text-dim-4": this.colors.textD4 || "",
+        "--text-buttons": this.colors.textButtons || "",
       };
     },
   },
@@ -86,5 +87,9 @@ export default {
 
 .text-dim-4 {
   color: var(--text-dim-4);
+}
+
+.text-buttons {
+  color: var(--text-buttons);
 }
 </style>

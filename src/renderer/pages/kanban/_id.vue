@@ -38,9 +38,14 @@
     />
     <div class="flex flex-row gap-4">
       <nuxt-link to="/"
-        ><button class="p-2 mb-6 rounded-md bg-accent">Go back home</button>
+        ><button class="p-2 mb-6 rounded-md text-buttons bg-accent">
+          Go back home
+        </button>
       </nuxt-link>
-      <button class="p-2 mb-6 rounded-md bg-accent" @click="deleteBoard">
+      <button
+        class="p-2 mb-6 rounded-md text-buttons bg-accent"
+        @click="deleteBoard"
+      >
         Delete Board
       </button>
     </div>

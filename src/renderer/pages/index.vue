@@ -91,6 +91,7 @@ export default {
     this.boards = this.$store.state.storage.get("boards") || [];
 
     // TODO: add back check to only set these default values if no others are saved, or just remove completely because defaults are set
+    /*
     this.$store.state.storage.set("colors", {
       bgPrimary: "#18181b",
       elevation1: "#27272a",
@@ -103,6 +104,21 @@ export default {
       textD2: "#d4d4d8",
       textD3: "#a1a1aa",
       textD4: "#71717a",
+    });
+    */
+    this.$store.state.storage.set("colors", {
+      bgPrimary: "#1E1E2E",
+      elevation1: "#302D41",
+      elevation2: "#575268",
+      elevation3: "#6E6C7E",
+      accent: "#F28FAD",
+      accentDarker: "#c97790",
+      text: "#f4f4f5",
+      textD1: "#e4e4e7",
+      textD2: "#d4d4d8",
+      textD3: "#a1a1aa",
+      textD4: "#71717a",
+      textButtons: "#1A1826",
     });
   },
 };

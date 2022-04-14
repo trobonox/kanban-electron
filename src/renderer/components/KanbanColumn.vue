@@ -125,7 +125,7 @@
       <div class="flex flex-row gap-2 w-full justify-start">
         <button
           id="submitButton"
-          class="px-2 py-1 bg-accent rounded-md"
+          class="px-2 py-1 text-buttons bg-accent rounded-md"
           @click="addCard($event)"
         >
           Add Card
