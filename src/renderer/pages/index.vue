@@ -99,6 +99,10 @@ export default {
       accent: "#059669",
       accentDarker: "#047857",
       text: "#f4f4f5",
+      textD1: "#e4e4e7",
+      textD2: "#d4d4d8",
+      textD3: "#a1a1aa",
+      textD4: "#71717a",
     });
   },
 };
