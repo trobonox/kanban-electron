@@ -1,28 +1,19 @@
 <template>
   <main id="home" class="px-6">
     <header
-      class="
-        flex flex-row
-        w-full
-        items-center
-        justify-between
-        bg-elevation-1
-        py-2
-        px-4
-        rounded-lg
-      "
+      class="bg-elevation-1 flex w-full flex-row items-center justify-between rounded-lg py-2 px-4"
     >
-      <a href="/" class="font-bold text-xl text-accent">Kanban Electron</a>
+      <a href="/" class="text-accent text-xl font-bold">Kanban Electron</a>
       <span>Version 0.1.0-beta made by Trobonox</span>
     </header>
     <section
       id="board-selection"
       class="mt-4 mb-10 ml-2 flex flex-col items-start"
     >
-      <h4 class="mb-8 font-bold text-4xl">Welcome back!</h4>
-      <h4 class="mb-2 font-medium text-xl">Your boards:</h4>
+      <h4 class="mb-8 text-4xl font-bold">Welcome back!</h4>
+      <h4 class="mb-2 text-xl font-medium">Your boards:</h4>
       <button
-        class="mb-6 px-2 py-1 text-buttons bg-accent rounded-md"
+        class="text-buttons bg-accent mb-6 rounded-md px-2 py-1"
         @click="createNewBoard"
       >
         Create new board
@@ -36,7 +27,7 @@
           v-for="(board, index) in boards"
           :key="index"
           :to="'/kanban/' + index"
-          class="p-4 text-lg bg-elevation-1 bg-elevation-2-hover rounded-md"
+          class="bg-elevation-1 bg-elevation-2-hover rounded-md p-4 text-lg"
           >{{ board.title }}</nuxt-link
         >
       </div>
@@ -123,4 +114,3 @@ export default {
   },
 };
 </script>
-

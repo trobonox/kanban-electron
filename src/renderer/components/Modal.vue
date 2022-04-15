@@ -2,40 +2,17 @@
   <transition name="modal-fade">
     <div
       @click.self="$emit('closeModal')"
-      class="
-        modal
-        flex flex-col
-        items-center
-        justify-center
-        z-50
-        inset-0
-        w-screen
-        h-screen
-        bg-clip-padding bg-zinc-800 bg-opacity-40
-        backdrop-filter backdrop-blur-xl
-      "
+      class="modal inset-0 z-50 flex h-screen w-screen flex-col items-center justify-center bg-zinc-800 bg-opacity-40 bg-clip-padding backdrop-blur-xl backdrop-filter"
     >
       <div
-        class="
-          flex flex-col
-          items-start
-          w-2/5
-          h-4/5
-          py-4
-          pl-8
-          pr-6
-          bg-elevation-1
-          shadow-lg
-          rounded-md
-          modal-body
-        "
+        class="bg-elevation-1 modal-body flex h-4/5 w-2/5 flex-col items-start rounded-md py-4 pl-8 pr-6 shadow-lg"
       >
-        <div class="flex flex-row items-center justify-between w-full">
+        <div class="flex w-full flex-row items-center justify-between">
           <h1
             @click="enableTitleEditing"
             v-if="!titleEditing"
             :v-model="modalTitle"
-            class="text-2xl font-bold pr-5 pointer-events-auto"
+            class="pointer-events-auto pr-5 text-2xl font-bold"
           >
             {{ modalTitle || title }}
           </h1>
@@ -46,19 +23,11 @@
             ref="titleInput"
             type="text"
             v-model="modalTitle"
-            class="
-              text-xl
-              bg-elevation-2
-              text-normal
-              focus:border-2
-              border-accent-focus
-              focus:border-dotted focus:outline-none
-              pointer-events-auto
-            "
+            class="bg-elevation-2 text-normal border-accent-focus pointer-events-auto text-xl focus:border-2 focus:border-dotted focus:outline-none"
           />
           <div @click="$emit('closeModal')" class="p-1">
             <svg
-              class="w-6 h-6 text-dim-4 text-accent-hover"
+              class="text-dim-4 text-accent-hover h-6 w-6"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

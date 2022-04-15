@@ -2,7 +2,7 @@
   <div class="px-6">
     <h1
       v-if="!boardTitleEditing"
-      class="font-bold text-4xl mb-2"
+      class="mb-2 text-4xl font-bold"
       @click="
         boardTitleEditing = true;
         $nextTick(() => $refs.boardTitleInput.focus());
@@ -15,18 +15,7 @@
       v-if="boardTitleEditing"
       type="text"
       v-model="boardTitle"
-      class="
-        mr-2
-        mb-2
-        px-2
-        text-4xl
-        w-full
-        bg-elevation-1
-        border-2 border-dotted border-accent
-        outline-none
-        rounded-sm
-        break-all
-      "
+      class="bg-elevation-1 border-accent mr-2 mb-2 w-full break-all rounded-sm border-2 border-dotted px-2 text-4xl outline-none"
       @blur="
         boardTitleEditing = false;
         updateBoardTitleStorage();
@@ -38,30 +27,19 @@
     />
     <div class="flex flex-row gap-4">
       <nuxt-link to="/"
-        ><button class="p-2 mb-6 rounded-md text-buttons bg-accent">
+        ><button class="text-buttons bg-accent mb-6 rounded-md p-2">
           Go back home
         </button>
       </nuxt-link>
       <button
-        class="p-2 mb-6 rounded-md text-buttons bg-accent"
+        class="text-buttons bg-accent mb-6 rounded-md p-2"
         @click="deleteBoard"
       >
         Delete Board
       </button>
     </div>
     <div
-      class="
-        pb-8
-        flex flex-row
-        gap-4
-        w-full
-        items-start
-        justify-start
-        overflow-x-auto
-        z-1
-        min-h-[87vh]
-        custom-scrollbar-horizontal
-      "
+      class="z-1 custom-scrollbar-horizontal flex min-h-[87vh] w-full flex-row items-start justify-start gap-4 overflow-x-auto pb-8"
     >
       <Container
         @drop="onDrop"
@@ -86,17 +64,7 @@
           />
         </Draggable>
         <div
-          class="
-            nodrag
-            h-min
-            flex flex-row
-            gap-2
-            items-center
-            p-2
-            bg-elevation-1 bg-elevation-2-hover
-            rounded-md
-            cursor-pointer
-          "
+          class="nodrag bg-elevation-1 bg-elevation-2-hover flex h-min cursor-pointer flex-row items-center gap-2 rounded-md p-2"
           @click="addColumn()"
         >
           <svg

@@ -1,6 +1,6 @@
 <template>
   <div :style="cssVars">
-    <div class="mx-auto py-4 w-full min-h-screen default-layout">
+    <div class="default-layout mx-auto min-h-screen w-full py-4">
       <nuxt />
     </div>
   </div>

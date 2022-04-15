@@ -22,20 +22,7 @@
         cols="6"
         rows="70"
         placeholder="Enter a detailed description of your card here..."
-        class="
-          mt-2
-          shadow-lg
-          p-2
-          rounded-md
-          w-11/12
-          h-40
-          resize-none
-          bg-elevation-2
-          focus:border-2
-          border-accent-focus
-          focus:border-dotted focus:outline-none
-          pointer-events-auto
-        "
+        class="bg-elevation-2 border-accent-focus pointer-events-auto mt-2 h-40 w-11/12 resize-none rounded-md p-2 shadow-lg focus:border-2 focus:border-dotted focus:outline-none"
       >
       </textarea>
     </template>
@@ -54,6 +41,7 @@ export default {
       description: "",
     };
   },
+
   methods: {
     initModal(cardID, title, description) {
       this.cardId = cardID;
@@ -61,9 +49,11 @@ export default {
       this.description = description;
       this.$refs.barebonesModal.setTitle(title);
     },
-    updateDescription(event) {
+
+    updateDescription() {
       this.$emit("setCardDescription", this.cardId, this.description);
     },
+
     setCardTitle(title) {
       this.title = title;
       this.$emit("setCardTitle", this.cardId, title);

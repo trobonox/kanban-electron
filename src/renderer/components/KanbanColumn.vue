@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col bg-elevation-1 p-2 rounded-md w-64">
+  <div class="bg-elevation-1 flex w-64 flex-col rounded-md p-2">
     <KanbanModal
       v-show="modalVisible"
       ref="modal"
@@ -8,14 +8,14 @@
       @closeModal="closeModal"
     />
 
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class="flex flex-row items-start justify-between gap-4">
       <h1
         v-if="!titleEditing"
         @click="
           titleEditing = true;
           $nextTick(() => $refs.titleInput.focus());
         "
-        class="ml-1 font-bold text-lg break-words"
+        class="ml-1 break-words text-lg font-bold"
       >
         {{ titleNew }}
       </h1>
@@ -24,17 +24,7 @@
         v-if="titleEditing"
         type="text"
         v-model="titleNew"
-        class="
-          mr-2
-          px-2
-          text-lg
-          w-full
-          bg-elevation-2
-          border-2 border-dotted border-accent
-          outline-none
-          rounded-sm
-          break-words
-        "
+        class="bg-elevation-2 border-accent mr-2 w-full break-words rounded-sm border-2 border-dotted px-2 text-lg outline-none"
         @blur="
           titleEditing = false;
           updateStorage();
@@ -45,14 +35,7 @@
         "
       />
       <svg
-        class="
-          flex-grow-0 flex-shrink-0
-          h-4
-          w-4
-          mt-2
-          text-dim-4 text-accent-hover
-          cursor-pointer
-        "
+        class="text-dim-4 text-accent-hover mt-2 h-4 w-4 flex-shrink-0 flex-grow-0 cursor-pointer"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
@@ -68,24 +51,24 @@
     <Container
       group-name="cards"
       :get-child-payload="getChildPayload"
-      class="max-h-65vh overflow-y-auto mt-2 rounded-sm custom-scrollbar"
+      class="max-h-65vh custom-scrollbar mt-2 overflow-y-auto rounded-sm"
       @drop="onDrop"
       :drag-handle-selector="dragHandleSelector"
     >
       <Draggable
         v-for="(el, index) in cards"
         :key="index"
-        class="px-3 pt-3 pb-5 mb-3 bg-elevation-2 rounded-sm cursor-grab"
+        class="bg-elevation-2 mb-3 cursor-grab rounded-sm px-3 pt-3 pb-5"
       >
         <div
-          class="flex flex-row justify-between cursor-pointer"
+          class="flex cursor-pointer flex-row justify-between"
           @click.self="openModal"
           :id="index"
         >
           <p class="break-all" @click="openModalFromChild">{{ el.name }}</p>
           <div class="cursor-pointer" @click="removeCard(index)">
             <svg
-              class="w-4 h-4 text-dim-4 text-accent-hover"
+              class="text-dim-4 text-accent-hover h-4 w-4"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -100,32 +83,22 @@
         </div>
       </Draggable>
     </Container>
-    <div v-if="cardAddMode" class="flex flex-col mt-2">
+    <div v-if="cardAddMode" class="mt-2 flex flex-col">
       <textarea
         id="newCardInput"
         ref="newCardInput"
         type="text"
         placeholder="Enter a card title..."
         v-model="newCardName"
-        class="
-          h-12
-          mb-2
-          p-1
-          bg-elevation-2
-          rounded-sm
-          focus:border-2
-          border-accent-focus
-          focus:border-dotted focus:outline-none
-          overflow-hidden
-        "
+        class="bg-elevation-2 border-accent-focus mb-2 h-12 overflow-hidden rounded-sm p-1 focus:border-2 focus:border-dotted focus:outline-none"
         @blur="addCard($event)"
         @keypress.enter="addCard($event)"
         v-resizable
       />
-      <div class="flex flex-row gap-2 w-full justify-start">
+      <div class="flex w-full flex-row justify-start gap-2">
         <button
           id="submitButton"
-          class="px-2 py-1 text-buttons bg-accent rounded-md"
+          class="text-buttons bg-accent rounded-md px-2 py-1"
           @click="addCard($event)"
         >
           Add Card
@@ -135,7 +108,7 @@
             cardAddMode = !cardAddMode;
             newCardName = '';
           "
-          class="px-2 py-1 bg-elevation-3-hover rounded-md"
+          class="bg-elevation-3-hover rounded-md px-2 py-1"
         >
           Cancel
         </button>
@@ -144,17 +117,7 @@
 
     <div
       v-if="!cardAddMode"
-      class="
-        mt-2
-        py-1
-        flex flex-row
-        gap-1
-        font-medium
-        text-dim-1
-        bg-elevation-3-hover
-        rounded-md
-        cursor-pointer
-      "
+      class="text-dim-1 bg-elevation-3-hover mt-2 flex cursor-pointer flex-row gap-1 rounded-md py-1 font-medium"
       @click="
         cardAddMode = !cardAddMode;
         $nextTick(() => $refs.newCardInput.focus());
@@ -330,4 +293,3 @@ export default {
   },
 };
 </script>
-
