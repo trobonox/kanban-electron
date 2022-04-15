@@ -3,7 +3,7 @@ const ICONS_DIR = 'assets/icons/'
 const windowsOS = {
   win: {
     icon: ICONS_DIR + 'win-icon.ico',
-    publisherName: 'michal',
+    publisherName: 'trobonox',
     target: 'nsis'
   },
 

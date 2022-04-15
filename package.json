@@ -12,7 +12,11 @@
   "keywords": [],
   "author": "trobonox <57040351+trobonox@users.noreply.github.com>",
   "license": "MIT",
-  "homepage": "https://github.com/michalzaq12/electron-nuxt/blob/master/README.md",
+  "homepage": "https://github.com/trobonox/kanban-electron",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trobonox/kanban-electron"
+},
   "engines": {
     "node": ">=14.14.9"
   },
