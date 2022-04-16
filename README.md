@@ -1,4 +1,6 @@
 # kanban-electron
+[![license](https://img.shields.io/github/license/trobonox/kanban-electron?style=flat)](https://opensource.org/licenses/MIT)
+[![release](https://img.shields.io/github/v/release/trobonox/kanban-electron)](https://github.com/trobonox/kanban-electron/releases)
 [![wakatime](https://wakatime.com/badge/user/be365b36-3fc6-4949-a760-a882bf44aad7/project/e222a792-8ba1-4987-97bd-baec10aa63fb.svg)](https://wakatime.com/badge/user/be365b36-3fc6-4949-a760-a882bf44aad7/project/e222a792-8ba1-4987-97bd-baec10aa63fb)
 
 A simple Kanban Board desktop application made with Electron, with a focus on simplicity and user experience. 
