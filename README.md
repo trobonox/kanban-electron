@@ -8,6 +8,12 @@ This software is intended for offline usage only, and saves all boards under a c
 
 Open for any contributions or feature requests, though always keep in mind that I am still a student with limited time and I might not be able to process every request immediately.
 
+**Planned Features:**
+- Custom themes (curated selection + editor to create your own from scratch)
+- UI improvements like a bar for quick actions in the board view
+- More card properties like a due date or sub-tasks
+- JSON exporting of boards
+
 ## Screenshot of the App
 ![image](https://user-images.githubusercontent.com/57040351/163267511-6cc8bd27-61c6-4cb9-8eaf-1455cdbe2d9c.png)
 
