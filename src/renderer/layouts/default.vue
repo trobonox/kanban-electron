@@ -97,6 +97,10 @@ export default {
   color: var(--text-dim-1);
 }
 
+.text-dim-2 {
+  color: var(--text-dim-2);
+}
+
 .text-dim-3 {
   color: var(--text-dim-3);
 }
