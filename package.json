@@ -2,7 +2,7 @@
   "name": "kanban-electron",
   "version": "0.1.0",
   "description": "Kanban board with offline persistence",
-  "main": "build/src/main/index.js",
+  "main": "../../src/main/index.js",
   "scripts": {
     "dev": "node .electron-nuxt/dev.js",
     "build": "node .electron-nuxt/build.js",
