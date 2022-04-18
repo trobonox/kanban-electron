@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="px-6">
     <Navbar />
-    <main id="home" class="px-6">
+    <main id="home">
       <section
         id="board-selection"
         class="mt-4 mb-10 ml-2 flex flex-col items-start"
