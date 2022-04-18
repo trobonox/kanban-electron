@@ -85,12 +85,20 @@ export default {
   color: var(--accent);
 }
 
+.text-accent-darker-hover:hover {
+  color: var(--accent-darker);
+}
+
 .text-normal {
   color: var(--text);
 }
 
 .text-dim-1 {
   color: var(--text-dim-1);
+}
+
+.text-dim-3 {
+  color: var(--text-dim-3);
 }
 
 .text-dim-4 {
