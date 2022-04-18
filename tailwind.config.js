@@ -6,7 +6,6 @@ module.exports = {
     "./src/renderer/plugins/**/*.{js,ts}",
     "../../nuxt.config.{js,ts}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {},
   },
