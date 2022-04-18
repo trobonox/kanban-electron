@@ -1,11 +1,6 @@
 <template>
   <main id="home" class="px-6">
-    <header
-      class="bg-elevation-1 flex w-full flex-row items-center justify-between rounded-lg py-2 px-4"
-    >
-      <a href="/" class="text-accent text-xl font-bold">Kanban Electron</a>
-      <span>Version 0.1.0-beta made by Trobonox</span>
-    </header>
+    <Navbar />
     <section
       id="board-selection"
       class="mt-4 mb-10 ml-2 flex flex-col items-start"
@@ -36,8 +31,11 @@
 </template>
 
 <script>
+import Navbar from "~/components/Navbar.vue"
+
 export default {
   name: "IndexPage",
+  components: {Navbar},
   data() {
     return {
       boards: [],
