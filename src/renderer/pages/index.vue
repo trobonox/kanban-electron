@@ -1,41 +1,43 @@
 <template>
-  <main id="home" class="px-6">
+  <div>
     <Navbar />
-    <section
-      id="board-selection"
-      class="mt-4 mb-10 ml-2 flex flex-col items-start"
-    >
-      <h4 class="mb-8 text-4xl font-bold">Welcome back!</h4>
-      <h4 class="mb-2 text-xl font-medium">Your boards:</h4>
-      <button
-        class="text-buttons bg-accent mb-6 rounded-md px-2 py-1"
-        @click="createNewBoard"
+    <main id="home" class="px-6">
+      <section
+        id="board-selection"
+        class="mt-4 mb-10 ml-2 flex flex-col items-start"
       >
-        Create new board
-      </button>
-      <span v-if="!boards || boards.length == 0"
-        >Wowzers! Looks like you have no boards yet! Use the button above to
-        create a new one.</span
-      >
-      <div class="flex flex-row gap-4" v-else>
-        <nuxt-link
-          v-for="(board, index) in boards"
-          :key="index"
-          :to="'/kanban/' + index"
-          class="bg-elevation-1 bg-elevation-2-hover rounded-md p-4 text-lg"
-          >{{ board.title }}</nuxt-link
+        <h4 class="mb-8 text-4xl font-bold">Welcome back!</h4>
+        <h4 class="mb-2 text-xl font-medium">Your boards:</h4>
+        <button
+          class="text-buttons bg-accent mb-6 rounded-md px-2 py-1"
+          @click="createNewBoard"
         >
-      </div>
-    </section>
-  </main>
+          Create new board
+        </button>
+        <span v-if="!boards || boards.length == 0"
+          >Wowzers! Looks like you have no boards yet! Use the button above to
+          create a new one.</span
+        >
+        <div class="flex flex-row gap-4" v-else>
+          <nuxt-link
+            v-for="(board, index) in boards"
+            :key="index"
+            :to="'/kanban/' + index"
+            class="bg-elevation-1 bg-elevation-2-hover rounded-md p-4 text-lg"
+            >{{ board.title }}</nuxt-link
+          >
+        </div>
+      </section>
+    </main>
+  </div>
 </template>
 
 <script>
-import Navbar from "~/components/Navbar.vue"
+import Navbar from "~/components/Navbar.vue";
 
 export default {
   name: "IndexPage",
-  components: {Navbar},
+  components: { Navbar },
   data() {
     return {
       boards: [],
