@@ -94,6 +94,24 @@
           </div>
         </div>
       </section>
+      <section id="miscellaneous-settings">
+        <h2 class="mt-8 mb-2 text-2xl font-bold">Miscellaneous</h2>
+        <div class="flex w-1/3 flex-row items-center justify-between">
+          <div>
+            <h3 class="text-lg">Delete all data (themes and boards)</h3>
+            <span class="text-dim-2"
+              ><span class="text-red-500">Caution!</span> This will unreversibly
+              delete all of your data!</span
+            >
+          </div>
+          <button
+            class="text-buttons bg-accent rounded-md px-4 py-2"
+            @click="deleteAllData()"
+          >
+            Delete
+          </button>
+        </div>
+      </section>
     </main>
   </div>
 </template>
@@ -124,6 +142,11 @@ export default {
 
       this.$store.state.storage.set("colors", themes[themeName]);
       this.$router.go(0);
+    },
+
+    deleteAllData() {
+      this.$store.state.storage.delete("boards");
+      this.$store.state.storage.delete("colors");
     },
   },
 };
