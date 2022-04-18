@@ -1,6 +1,6 @@
 <template>
   <header
-    class="bg-elevation-1 flex w-full flex-row items-center justify-between rounded-lg py-2 px-4"
+    class="bg-elevation-1 flex w-full flex-row items-center justify-between rounded-lg py-2 px-4 shadow-lg"
   >
     <div>
       <nuxt-link

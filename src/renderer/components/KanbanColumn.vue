@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-elevation-1 flex w-64 flex-col rounded-md p-2">
+  <div class="bg-elevation-1 flex w-64 flex-col rounded-md p-2 shadow-lg">
     <KanbanModal
       v-show="modalVisible"
       ref="modal"
