@@ -7,11 +7,13 @@
 </template>
 
 <script>
+import { dark } from "~/themes.js";
+
 export default {
   name: "default",
   data() {
     return {
-      colors: {},
+      colors: dark,
     };
   },
   mounted() {
@@ -19,20 +21,36 @@ export default {
   },
   computed: {
     cssVars() {
-      console.log(this.colors);
+      if (!this.colors) {
+        return {
+          "--bg-primary": dark.bgPrimary,
+          "--elevation-1": dark.elevation1,
+          "--elevation-2": dark.elevation2,
+          "--elevation-3": dark.elevation3,
+          "--accent": dark.accent,
+          "--accent-darker": dark.accentDarker,
+          "--text": dark.text,
+          "--text-dim-1": dark.textD1,
+          "--text-dim-2": dark.textD2,
+          "--text-dim-3": dark.textD3,
+          "--text-dim-4": dark.textD4,
+          "--text-buttons": dark.textButtons,
+        };
+      }
+
       return {
-        "--bg-primary": this.colors.bgPrimary || "#18181b",
-        "--elevation-1": this.colors.elevation1 || "#27272a",
-        "--elevation-2": this.colors.elevation2 || "#3f3f46",
-        "--elevation-3": this.colors.elevation3 || "#52525b",
-        "--accent": this.colors.accent || "#059669",
-        "--accent-darker": this.colors.accentDarker || "#047857",
-        "--text": this.colors.text || "#f4f4f5",
-        "--text-dim-1": this.colors.textD1 || "",
-        "--text-dim-2": this.colors.textD2 || "",
-        "--text-dim-3": this.colors.textD3 || "",
-        "--text-dim-4": this.colors.textD4 || "",
-        "--text-buttons": this.colors.textButtons || "",
+        "--bg-primary": this.colors.bgPrimary,
+        "--elevation-1": this.colors.elevation1,
+        "--elevation-2": this.colors.elevation2,
+        "--elevation-3": this.colors.elevation3,
+        "--accent": this.colors.accent,
+        "--accent-darker": this.colors.accentDarker,
+        "--text": this.colors.text,
+        "--text-dim-1": this.colors.textD1,
+        "--text-dim-2": this.colors.textD2,
+        "--text-dim-3": this.colors.textD3,
+        "--text-dim-4": this.colors.textD4,
+        "--text-buttons": this.colors.textButtons,
       };
     },
   },
