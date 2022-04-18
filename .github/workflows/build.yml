@@ -21,6 +21,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
+          
+      - name: directory
+        shell: bash
+        run: |
+          cd ../../
 
       - name: Build/release Electron app
         uses: michalzaq12/action-electron-nuxt@v1
