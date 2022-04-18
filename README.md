@@ -12,6 +12,7 @@ Open for any contributions or feature requests, though always keep in mind that 
 - Custom themes (curated selection + editor to create your own from scratch)
 - UI improvements like a bar for quick actions in the board view
 - More card properties like a due date or sub-tasks
+- Custom backgrounds in board view
 - JSON exporting of boards
 
 ## Screenshot of the App
