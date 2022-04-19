@@ -42,9 +42,9 @@ const macOS = {
 }
 
 module.exports = {
-  productName: 'kanban-electron',
+  productName: 'KanbanElectron',
   appId: 'com.trobonox.kanban',
-  artifactName: 'setup-${version}.${ext}',
+  artifactName: 'kanban-electron-${version}.${ext}',
   directories: {
     output: 'build'
   },
