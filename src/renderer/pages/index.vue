@@ -13,10 +13,21 @@
         >
         <h2 class="mb-2 text-2xl font-bold">Your boards:</h2>
 
-        <span v-if="!boards || boards.length == 0"
-          >Wowzers! Looks like you have no boards yet! Use the button above to
-          create a new one.</span
+        <div
+          v-if="!boards || boards.length == 0"
+          class="flex flex-col items-start"
         >
+          <button
+            class="text-buttons bg-accent mb-6 rounded-md px-2 py-1"
+            @click="createNewBoard"
+          >
+            Create new board
+          </button>
+          <span
+            >Wowzers! Looks like you have no boards yet! Use the button above to
+            create a new one.</span
+          >
+        </div>
         <div class="flex flex-row gap-4" v-else>
           <nuxt-link
             v-for="(board, index) in boards"
