@@ -1,6 +1,6 @@
 {
   "name": "kanban-electron",
-  "version": "0.1.0",
+  "version": "v0.2.0-beta",
   "description": "Kanban board with offline persistence",
   "main": "./dist/main/index.js",
   "scripts": {
