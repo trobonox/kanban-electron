@@ -3,7 +3,7 @@
     <Navbar />
     <main id="settings" class="ml-4 mt-8">
       <h1 class="text-4xl font-bold">Settings</h1>
-      <span class="text-dim-2"
+      <span class="text-dim-3"
         >Change the behaviour of the application here.</span
       >
       <section id="theme-settings">
@@ -96,7 +96,7 @@
       </section>
       <section id="miscellaneous-settings">
         <h2 class="mt-8 mb-2 text-2xl font-bold">Miscellaneous</h2>
-        <div class="flex w-1/3 flex-row items-center justify-between">
+        <div class="flex w-[48rem] flex-row items-start justify-between">
           <div>
             <h3 class="text-lg">Delete all data (themes and boards)</h3>
             <span class="text-dim-2"
