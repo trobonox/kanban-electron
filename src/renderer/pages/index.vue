@@ -28,7 +28,7 @@
             create a new one.</span
           >
         </div>
-        <div class="flex flex-row gap-4" v-else>
+        <div class="flex flex-row flex-wrap gap-4" v-else>
           <nuxt-link
             v-for="(board, index) in boards"
             :key="index"
