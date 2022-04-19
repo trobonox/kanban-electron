@@ -147,6 +147,9 @@ export default {
     deleteAllData() {
       this.$store.state.storage.delete("boards");
       this.$store.state.storage.delete("colors");
+      this.$toast.success("Successfully deleted all stored JSON data.", {
+        duration: 2500,
+      });
     },
   },
 };

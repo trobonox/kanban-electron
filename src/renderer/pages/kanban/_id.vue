@@ -237,6 +237,7 @@ export default {
       const boards = this.boardsWithoutCurrent();
       this.$store.state.storage.set("boards", boards);
       this.$router.push("/");
+      this.$toast.success("Successfully deleted board.", { duration: 2500 });
     },
 
     updateStorage(columnRef) {
