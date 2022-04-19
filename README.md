@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img src="https://user-images.githubusercontent.com/57040351/163876968-650582f9-1b15-42b3-88f9-80418ddcd840.png" width="80%" height="60%" alt="KanbanElectron Banner" />
+  <img src="https://user-images.githubusercontent.com/57040351/163876968-650582f9-1b15-42b3-88f9-80418ddcd840.png" width="90%" height="60%" alt="KanbanElectron Banner" />
   <br>
   <b> A cross-platform Kanban Board desktop application made with Electron & Nuxt.js, with a focus on simplicity and user experience. </b>
   <br> <br>
