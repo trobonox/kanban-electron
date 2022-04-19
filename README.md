@@ -12,11 +12,8 @@
   
 </p>
 
----
-
-This software is intended for offline usage only, and saves all boards under a config.json file. As an online counterpart, you can use [Trello](https://trello.com) or my counterpart [Productivity Suite](https://productivity-suite-three.vercel.app) (Please note that this is currently a work in progress, so some features are still missing and you might encounter bugs).
-
-Open for any contributions or feature requests, though always keep in mind that I am still a student with limited time and I might not be able to process every request immediately.
+## 🌌 Showcase
+![image](https://user-images.githubusercontent.com/57040351/163267511-6cc8bd27-61c6-4cb9-8eaf-1455cdbe2d9c.png)
 
 ## 📋 Roadmap (planned features)
 * Custom themes (curated selection + editor to create your own from scratch)
@@ -25,8 +22,8 @@ Open for any contributions or feature requests, though always keep in mind that 
 * Custom backgrounds in board view
 * JSON exporting of boards
 
-## 🌌 Showcase
-![image](https://user-images.githubusercontent.com/57040351/163267511-6cc8bd27-61c6-4cb9-8eaf-1455cdbe2d9c.png)
+Open for any contributions or feature requests, though always keep in mind that I am still a student with limited time and I might not be able to process every request immediately.
+
 
 ## 🛠 Build Setup
 
@@ -45,3 +42,5 @@ yarn build
 ---
 
 This project was generated with [electron-nuxt](https://github.com/michalzaq12/electron-nuxt) v1.8.1 using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://github.com/michalzaq12/electron-nuxt/blob/master/README.md).
+
+_Copyright (c) 2022 Trobonox_
