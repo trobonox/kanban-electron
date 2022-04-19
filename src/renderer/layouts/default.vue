@@ -130,4 +130,10 @@ export default {
 .text-buttons {
   color: var(--text-buttons);
 }
+
+.text-no-overflow {
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+}
 </style>

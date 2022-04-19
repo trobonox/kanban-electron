@@ -15,7 +15,7 @@
           titleEditing = true;
           $nextTick(() => $refs.titleInput.focus());
         "
-        class="ml-1 break-words text-lg font-bold"
+        class="text-no-overflow ml-1 text-lg font-bold"
       >
         {{ titleNew }}
       </h1>
@@ -24,7 +24,7 @@
         v-if="titleEditing"
         type="text"
         v-model="titleNew"
-        class="bg-elevation-2 border-accent mr-2 w-full break-words rounded-sm border-2 border-dotted px-2 text-lg outline-none"
+        class="bg-elevation-2 border-accent text-no-overflow mr-2 w-full rounded-sm border-2 border-dotted px-2 text-lg outline-none"
         @blur="
           titleEditing = false;
           updateStorage();
@@ -65,7 +65,9 @@
           @click.self="openModal"
           :id="index"
         >
-          <p class="break-all" @click="openModalFromChild">{{ el.name }}</p>
+          <p class="text-no-overflow mr-2" @click="openModalFromChild">
+            {{ el.name }}
+          </p>
           <div class="cursor-pointer" @click="removeCard(index)">
             <svg
               class="text-dim-4 text-accent-hover h-4 w-4"
