@@ -25,5 +25,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build
+        env:
+          GH_TOKEN: ${{ secrets.github_token }}
         run: yarn build
             
