@@ -22,7 +22,7 @@ module.exports = {
   ],
 
   modules: [
-
+    '@nuxtjs/toast',
   ],
 
   build: {
