@@ -93,6 +93,12 @@
             <label for="custom-mode-icon" class="cursor-pointer">Custom</label>
           </div>
         </div>
+        <div v-if="themeEditorDisplayed" class="mt-6 text-lg">
+          <h3 class="mb-2 font-semibold">
+            Select the colors for your custom theme:
+          </h3>
+          <CustomThemeEditor />
+        </div>
       </section>
       <section id="miscellaneous-settings">
         <h2 class="mt-8 mb-2 text-2xl font-bold">Miscellaneous</h2>
@@ -118,14 +124,16 @@
 
 <script>
 import Navbar from "~/components/Navbar.vue";
+import CustomThemeEditor from "~/components/CustomThemeEditor.vue";
 import { light, dark, catppuccin } from "~/themes.js";
 
 export default {
   name: "SettingsPage",
-  components: { Navbar },
+  components: { Navbar, CustomThemeEditor },
   data() {
     return {
       themeEditorDisplayed: false,
+      customTheme: {},
     };
   },
   methods: {
@@ -137,6 +145,7 @@ export default {
 
       if (themeName === "custom") {
         this.themeEditorDisplayed = true;
+        this.customTheme = dark;
         return;
       }
 
