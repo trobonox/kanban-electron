@@ -152,9 +152,6 @@ export default {
   mounted() {
     const savedPalette = this.$store.state.storage.get("colors");
     this.customTheme = savedPalette || dark;
-
-    console.log(this.customTheme);
-    console.log(lightenColor(String(this.customTheme.accent), -30));
   },
 
   methods: {
