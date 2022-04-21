@@ -22,6 +22,7 @@ export default {
   computed: {
     cssVars() {
       if (!this.colors) {
+        this.$store.state.storage.set("activeTheme", "dark");
         return {
           "--bg-primary": dark.bgPrimary,
           "--elevation-1": dark.elevation1,

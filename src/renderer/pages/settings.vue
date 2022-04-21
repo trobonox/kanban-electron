@@ -17,6 +17,7 @@
               xmlns="http://www.w3.org/2000/svg"
               id="light-mode-icon"
               class="h-8 w-8"
+              :class="themeIconClass('light')"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -38,6 +39,7 @@
               xmlns="http://www.w3.org/2000/svg"
               id="dark-mode-icon"
               class="h-8 w-8"
+              :class="themeIconClass('dark')"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -58,6 +60,7 @@
             <svg
               id="catppuccin-mode-icon"
               class="h-8 w-8"
+              :class="themeIconClass('catppuccin')"
               fill="none"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -79,6 +82,7 @@
               xmlns="http://www.w3.org/2000/svg"
               id="custom-mode-icon"
               class="h-8 w-8"
+              :class="themeIconClass('custom')"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -132,15 +136,20 @@ export default {
   components: { Navbar, CustomThemeEditor },
   data() {
     return {
+      activeTheme: "",
       themeEditorDisplayed: false,
     };
   },
+  mounted() {
+    this.activeTheme = this.$store.state.storage.get("activeTheme");
+  },
   methods: {
     setTheme(themeName) {
-      const themes = { light, dark, catppuccin };
-      console.log(themes[themeName]);
-
+      this.activeTheme = themeName;
+      this.$store.state.storage.set("activeTheme", themeName);
       this.themeEditorDisplayed = false;
+
+      const themes = { light, dark, catppuccin };
 
       if (themeName === "custom") {
         this.themeEditorDisplayed = true;
@@ -149,6 +158,25 @@ export default {
 
       this.$store.state.storage.set("colors", themes[themeName]);
       this.$router.go(0);
+    },
+
+    themeIconClass(themeName) {
+      switch (themeName) {
+        case "light":
+          if (this.activeTheme === "light") return "text-accent";
+          break;
+        case "dark":
+          if (this.activeTheme === "dark") return "text-accent";
+          break;
+        case "catppuccin":
+          if (this.activeTheme === "catppuccin") return "text-accent";
+          break;
+        case "custom":
+          if (this.activeTheme === "custom") return "text-accent";
+          break;
+        default:
+          return "";
+      }
     },
 
     deleteAllData() {
