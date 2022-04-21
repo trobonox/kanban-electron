@@ -127,7 +127,12 @@
     </div>
 
     <div class="flex flex-row items-center justify-end">
-      <button class="text-buttons bg-accent rounded-md px-6 py-1">Save</button>
+      <button
+        class="text-buttons bg-accent rounded-md px-6 py-1"
+        @click="setCustomTheme"
+      >
+        Save
+      </button>
     </div>
   </div>
 </template>
@@ -143,12 +148,38 @@ export default {
       customTheme: "",
     };
   },
+
   mounted() {
     const savedPalette = this.$store.state.storage.get("colors");
     this.customTheme = savedPalette || dark;
 
     console.log(this.customTheme);
     console.log(lightenColor(String(this.customTheme.accent), -30));
+  },
+
+  methods: {
+    setCustomTheme() {
+      this.$store.state.storage.set("activeTheme", "custom");
+
+      const theme = {
+        // take values from inputs and generate missing shades
+        bgPrimary: this.customTheme.bgPrimary,
+        elevation1: this.customTheme.elevation1,
+        elevation2: this.customTheme.elevation2,
+        elevation3: this.customTheme.elevation3,
+        accent: this.customTheme.accent,
+        accentDarker: lightenColor(this.customTheme.accent, -40),
+        text: this.customTheme.text,
+        textD1: lightenColor(this.customTheme.text, -30),
+        textD2: lightenColor(this.customTheme.text, -50),
+        textD3: lightenColor(this.customTheme.text, -70),
+        textD4: lightenColor(this.customTheme.text, -90),
+        textButtons: this.customTheme.textButtons,
+      };
+
+      this.$store.state.storage.set("colors", theme);
+      this.$router.go(0);
+    },
   },
 };
 </script>
