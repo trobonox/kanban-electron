@@ -133,7 +133,6 @@ export default {
   data() {
     return {
       themeEditorDisplayed: false,
-      customTheme: {},
     };
   },
   methods: {
@@ -145,7 +144,6 @@ export default {
 
       if (themeName === "custom") {
         this.themeEditorDisplayed = true;
-        this.customTheme = dark;
         return;
       }
 
