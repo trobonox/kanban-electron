@@ -146,7 +146,6 @@ export default {
   methods: {
     setTheme(themeName) {
       this.activeTheme = themeName;
-      this.$store.state.storage.set("activeTheme", themeName);
       this.themeEditorDisplayed = false;
 
       const themes = { light, dark, catppuccin };
@@ -156,6 +155,7 @@ export default {
         return;
       }
 
+      this.$store.state.storage.set("activeTheme", themeName);
       this.$store.state.storage.set("colors", themes[themeName]);
       this.$router.go(0);
     },
