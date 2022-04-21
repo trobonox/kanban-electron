@@ -16,7 +16,7 @@
 ![image](https://user-images.githubusercontent.com/57040351/163267511-6cc8bd27-61c6-4cb9-8eaf-1455cdbe2d9c.png)
 
 ## 📋 Roadmap (planned features)
-* Custom themes (curated selection + editor to create your own from scratch)
+* ~~Custom themes (curated selection + editor to create your own from scratch)~~ ✔️
 * UI improvements like a bar for quick actions in the board view
 * More card properties like a due date or sub-tasks
 * Custom backgrounds in board view
