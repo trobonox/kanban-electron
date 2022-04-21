@@ -19,6 +19,42 @@
     </div>
 
     <div class="flex flex-row items-center justify-between">
+      <label for="color-picker">Primary text color</label>
+      <div class="flex flex-row gap-4">
+        <input
+          type="text"
+          v-model="customTheme.text"
+          class="bg-elevation-1 w-24 rounded-md px-2"
+          readonly="readonly"
+        />
+        <input
+          ref="colorInput"
+          type="color"
+          value="#ffffff"
+          v-model="customTheme.text"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-row items-center justify-between">
+      <label for="color-picker">Button text</label>
+      <div class="flex flex-row gap-4">
+        <input
+          type="text"
+          v-model="customTheme.textButtons"
+          class="bg-elevation-1 w-24 rounded-md px-2"
+          readonly="readonly"
+        />
+        <input
+          ref="colorInput"
+          type="color"
+          value="#ffffff"
+          v-model="customTheme.textButtons"
+        />
+      </div>
+    </div>
+
+    <div class="flex flex-row items-center justify-between">
       <label for="color-picker">Primary background color</label>
       <div class="flex flex-row gap-4">
         <input
