@@ -142,6 +142,7 @@ export default {
   },
   mounted() {
     this.activeTheme = this.$store.state.storage.get("activeTheme");
+    if (this.activeTheme === "custom") this.themeEditorDisplayed = true;
   },
   methods: {
     setTheme(themeName) {
