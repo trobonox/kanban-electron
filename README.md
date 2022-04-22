@@ -22,6 +22,7 @@ A temporary "fix" is to use only one board for the time being.
 * ~~Custom themes (curated selection + editor to create your own from scratch)~~ ✔️
 * UI improvements like a bar for quick actions in the board view
 * More card properties like a due date or sub-tasks
+* Add tests to prevent any critical bugs
 * Custom backgrounds in board view
 * JSON exporting of boards
 
