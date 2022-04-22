@@ -12,7 +12,7 @@
   
 </p>
 
-**Please note:** There is currently a critical bug which in some situations creates exact clones of boards. **DO NOT** make any sensitive work in this application as there is no way to restore your data if this bug occurs. I am currently working on a solution to prevent these board mirrors.
+**Please note:** There is currently a critical bug which in some situations creates exact clones of boards. **DO NOT** make any sensitive work in this application as there is no way to restore your data if this bug occurs. I am currently working on a solution to prevent these board mirrors. Check issue #1 for more information.
 
 ## 🌌 Showcase
 ![image](https://user-images.githubusercontent.com/57040351/163267511-6cc8bd27-61c6-4cb9-8eaf-1455cdbe2d9c.png)
