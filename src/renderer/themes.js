@@ -29,18 +29,18 @@ export const dark = {
 }
 
 export const catppuccin = {
-  bgPrimary: "#1E1E2E",
-  elevation1: "#302D41",
+  bgPrimary: "#1e1e2e",
+  elevation1: "#302d41",
   elevation2: "#575268",
-  elevation3: "#6E6C7E",
-  accent: "#F28FAD",
+  elevation3: "#6e6c7e",
+  accent: "#f28fad",
   accentDarker: "#c97790",
   text: "#f4f4f5",
   textD1: "#e4e4e7",
   textD2: "#d4d4d8",
   textD3: "#a1a1aa",
   textD4: "#71717a",
-  textButtons: "#1A1826",
+  textButtons: "#1a1826",
 }
 
 export default {
