@@ -57,7 +57,7 @@
             @addColumn="addColumn"
             @modalOpen="disableDragging()"
             @modalClose="enableDragging()"
-            @updateStorage="updateStorage"
+            @updateStorage="updateColumnProperties"
           />
         </Draggable>
         <div
@@ -252,6 +252,8 @@ export default {
         return obj.id === this.board.id;
       })[0];
       const currentBoardIndex = savedBoards.indexOf(currentBoard);
+
+      console.log(savedBoards);
 
       savedBoards[currentBoardIndex] = this.board; // overwrite old board with new one
       this.$store.state.storage.set("boards", savedBoards); // overwrite all svaed boards with new altered array which includes modified current board

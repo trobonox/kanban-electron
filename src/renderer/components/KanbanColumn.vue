@@ -29,7 +29,10 @@
           titleEditing = false;
           updateStorage();
         "
-        @keypress.enter="titleEditing = false"
+        @keypress.enter="
+          titleEditing = false;
+          updateStorage();
+        "
       />
       <svg
         class="text-dim-4 text-accent-hover mt-2 h-4 w-4 flex-shrink-0 flex-grow-0 cursor-pointer"
@@ -91,10 +94,7 @@
         v-model="newCardName"
         class="bg-elevation-2 border-accent-focus mb-2 h-12 overflow-hidden rounded-sm p-1 focus:border-2 focus:border-dotted focus:outline-none"
         @blur="addCard($event)"
-        @keypress.enter="
-          newCardName = '';
-          cardAddMode = false;
-        "
+        @keypress.enter="addCard($event)"
         v-resizable
       />
       <div class="flex w-full flex-row justify-start gap-2">
@@ -153,7 +153,7 @@ export default {
   components: { Container, Draggable, KanbanModal },
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
     title: {
