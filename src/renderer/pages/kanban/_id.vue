@@ -20,10 +20,7 @@
         boardTitleEditing = false;
         updateBoardTitleStorage();
       "
-      @keypress.enter="
-        boardTitleEditing = false;
-        updateBoardTitleStorage();
-      "
+      @keypress.enter="boardTitleEditing = false"
     />
     <div class="flex flex-row gap-4">
       <nuxt-link to="/"
@@ -165,11 +162,9 @@ export default {
 
   methods: {
     onDrop(dropResult) {
-      const boards = this.boardsWithoutCurrent();
-
       this.board.lists = this.applyDrag(this.board.lists, dropResult);
 
-      this.$store.state.storage.set("boards", [...boards, this.board]);
+      this.updateStorage();
     },
 
     getChildPayload(index) {
@@ -195,8 +190,6 @@ export default {
     },
 
     addColumn() {
-      const boards = this.boardsWithoutCurrent();
-
       const column = {
         id: this.board.lists.length + 1,
         title: "New Column",
@@ -204,19 +197,17 @@ export default {
       };
 
       this.$set(this.board.lists, this.board.lists.length, column);
-      this.$store.state.storage.set("boards", [...boards, this.board]);
+      this.updateStorage();
     },
 
     removeColumn(columnID) {
-      const boards = this.boardsWithoutCurrent();
-
       const column = this.board.lists.filter((obj) => {
         return obj.id === columnID;
       })[0];
       const columnIndex = this.board.lists.indexOf(column);
 
       this.$delete(this.board.lists, columnIndex);
-      this.$store.state.storage.set("boards", [...boards, this.board]);
+      this.updateStorage();
     },
 
     enableDragging() {
@@ -227,38 +218,42 @@ export default {
       this.draggingEnabled = false;
     },
 
-    boardsWithoutCurrent() {
-      let boards = this.$store.state.storage.get("boards");
-      boards.splice(this.$route.params.id, 1);
-      return boards;
-    },
-
     deleteBoard() {
-      const boards = this.boardsWithoutCurrent();
+      const boards = this.$store.state.storage.get("boards");
+      boards.splice(this.$route.params.id, 1);
+
       this.$store.state.storage.set("boards", boards);
       this.$router.push("/");
       this.$toast.success("Successfully deleted board.", { duration: 2500 });
     },
 
-    updateStorage(columnRef) {
-      const boards = this.boardsWithoutCurrent();
-
+    updateColumnProperties(columnRef) {
       let board = this.board;
-
       const column = this.board.lists.filter((obj) => {
         return obj.id === columnRef.id;
       })[0];
       const columnIndex = this.board.lists.indexOf(column);
 
       board.lists[columnIndex] = columnRef;
+      this.board = board;
 
-      this.$store.state.storage.set("boards", [...boards, this.board]);
+      this.updateStorage();
     },
 
     updateBoardTitleStorage() {
-      const boards = this.boardsWithoutCurrent();
       this.board.title = this.boardTitle;
-      this.$store.state.storage.set("boards", [...boards, this.board]);
+      this.updateStorage();
+    },
+
+    updateStorage() {
+      let savedBoards = this.$store.state.storage.get("boards");
+      const currentBoard = savedBoards.filter((obj) => {
+        return obj.id === this.board.id;
+      })[0];
+      const currentBoardIndex = savedBoards.indexOf(currentBoard);
+
+      savedBoards[currentBoardIndex] = this.board; // overwrite old board with new one
+      this.$store.state.storage.set("boards", savedBoards); // overwrite all svaed boards with new altered array which includes modified current board
     },
   },
 };
