@@ -106,20 +106,37 @@
       </section>
       <section id="miscellaneous-settings">
         <h2 class="mt-8 mb-2 text-2xl font-bold">Miscellaneous</h2>
-        <div class="flex w-[48rem] flex-row items-start justify-between">
-          <div>
-            <h3 class="text-lg">Delete all data (themes and boards)</h3>
-            <span class="text-dim-2"
-              ><span class="text-red-500">Caution!</span> This will unreversibly
-              delete all of your data!</span
+        <div class="flex flex-col gap-4">
+          <div class="flex w-[48rem] flex-row items-start justify-between">
+            <div>
+              <h3 class="text-lg">Export data to JSON</h3>
+              <span class="text-dim-2">
+                Backup all of your data (boards and themes) to a local JSON
+                file.</span
+              >
+            </div>
+            <button
+              class="text-buttons bg-accent rounded-md px-4 py-2"
+              @click="exportJSON()"
             >
+              Export
+            </button>
           </div>
-          <button
-            class="text-buttons bg-accent rounded-md px-4 py-2"
-            @click="deleteAllData()"
-          >
-            Delete
-          </button>
+          <div class="flex w-[48rem] flex-row items-start justify-between">
+            <div>
+              <h3 class="text-lg">Delete all data (themes and boards)</h3>
+              <span class="text-dim-2"
+                ><span class="text-red-500">Caution!</span> This will
+                unreversibly delete all of your data!</span
+              >
+            </div>
+            <button
+              class="text-buttons bg-accent rounded-md px-4 py-2"
+              @click="deleteAllData()"
+            >
+              Delete
+            </button>
+          </div>
         </div>
       </section>
     </main>
@@ -186,6 +203,11 @@ export default {
       this.$toast.success("Successfully deleted all stored JSON data.", {
         duration: 2500,
       });
+    },
+
+    exportJSON() {
+      const ipc = require("electron").ipcRenderer;
+      ipc.send("export-json");
     },
   },
 };
