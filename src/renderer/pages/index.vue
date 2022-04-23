@@ -64,6 +64,7 @@
 
 <script>
 import Navbar from "~/components/Navbar.vue";
+import { generateUniqueID } from "~/utils/idGenerator.js";
 
 export default {
   name: "IndexPage",
@@ -81,10 +82,11 @@ export default {
       let old_boards = this.$store.state.storage.get("boards") || [];
 
       let board = {
+        id: generateUniqueID(),
         title: "New Board",
         lists: [
           {
-            id: 1,
+            id: generateUniqueID(),
             title: "New Column 1",
             cards: [
               {
@@ -98,7 +100,7 @@ export default {
             ],
           },
           {
-            id: 2,
+            id: generateUniqueID(),
             title: "New Column 2",
             cards: [{ name: "Example Card 3", description: "" }],
           },
