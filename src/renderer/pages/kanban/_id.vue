@@ -88,6 +88,7 @@
 <script>
 import { Container, Draggable } from "vue-smooth-dnd";
 import KanbanColumn from "~/components/KanbanColumn.vue";
+import { generateUniqueID } from "~/utils/idGenerator.js";
 
 export default {
   name: "pog",
@@ -191,7 +192,7 @@ export default {
 
     addColumn() {
       const column = {
-        id: this.board.lists.length + 1,
+        id: generateUniqueID(),
         title: "New Column",
         cards: [{ name: "Test Card" }],
       };
