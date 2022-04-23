@@ -20,13 +20,13 @@
 
 ## 📋 Roadmap (planned features)
 
-- ~~Custom themes (curated selection + editor to create your own from scratch)~~ ✔️
-- UI improvements like a bar for quick actions in the board view
-- Add help menu with keyboard shortcuts and support resources
-- More card properties like a due date or sub-tasks
-- Add tests to prevent any critical bugs
-- Custom backgrounds in board view
-- JSON exporting of boards
+- [x]   Custom themes (curated selection + editor to create your own from scratch)
+- [ ] UI improvements like a bar for quick actions in the board view
+- [x] Add help menu with keyboard shortcuts and support resources
+- [ ] More card properties like a due date or sub-tasks
+- [ ] Add tests to prevent any critical bugs
+- [ ] Custom backgrounds in board view
+- [x] JSON exporting of boards
 
 Open for any contributions or feature requests, though always keep in mind that I am still a student with limited time and I might not be able to process every request immediately.
 
