@@ -8,7 +8,7 @@
         class="text-accent text-accent-darker-hover text-xl font-bold"
         >Kanban Electron</nuxt-link
       >
-      <span class="text-dim-3 ml-1">v0.2.0-beta</span>
+      <span class="text-dim-3 ml-1">v0.2.1-beta</span>
     </div>
     <nuxt-link to="/settings">
       <svg

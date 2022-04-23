@@ -12,27 +12,27 @@
   
 </p>
 
-**Please note:** There is currently a critical bug which in some situations creates exact clones of boards. **DO NOT** make any sensitive work in this application as there is no way to restore your data if this bug occurs. I am currently working on a solution to prevent these board mirrors and will try to get it out as soon as I can. Check issue #1 for more information.
-A temporary "fix" is to use only one board for the time being.
+**Please note:** There was a critical bug which could result board overrides in versions prior to 0.2.1-beta. Please update your version to 0.2.1-beta by downloading the latest release to be safe. Thanks for your understanding!
 
 ## 🌌 Showcase
+
 ![image](https://user-images.githubusercontent.com/57040351/163267511-6cc8bd27-61c6-4cb9-8eaf-1455cdbe2d9c.png)
 
 ## 📋 Roadmap (planned features)
-* ~~Custom themes (curated selection + editor to create your own from scratch)~~ ✔️
-* UI improvements like a bar for quick actions in the board view
-* Add help menu with keyboard shortcuts and support resources
-* More card properties like a due date or sub-tasks
-* Add tests to prevent any critical bugs
-* Custom backgrounds in board view
-* JSON exporting of boards
+
+- ~~Custom themes (curated selection + editor to create your own from scratch)~~ ✔️
+- UI improvements like a bar for quick actions in the board view
+- Add help menu with keyboard shortcuts and support resources
+- More card properties like a due date or sub-tasks
+- Add tests to prevent any critical bugs
+- Custom backgrounds in board view
+- JSON exporting of boards
 
 Open for any contributions or feature requests, though always keep in mind that I am still a student with limited time and I might not be able to process every request immediately.
 
-
 ## 🛠 Build Setup
 
-``` bash
+```bash
 # install dependencies
 yarn install
 
