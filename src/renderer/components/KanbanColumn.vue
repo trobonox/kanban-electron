@@ -29,10 +29,7 @@
           titleEditing = false;
           updateStorage();
         "
-        @keypress.enter="
-          titleEditing = false;
-          updateStorage();
-        "
+        @keypress.enter="titleEditing = false"
       />
       <svg
         class="text-dim-4 text-accent-hover mt-2 h-4 w-4 flex-shrink-0 flex-grow-0 cursor-pointer"
@@ -94,7 +91,10 @@
         v-model="newCardName"
         class="bg-elevation-2 border-accent-focus mb-2 h-12 overflow-hidden rounded-sm p-1 focus:border-2 focus:border-dotted focus:outline-none"
         @blur="addCard($event)"
-        @keypress.enter="addCard($event)"
+        @keypress.enter="
+          newCardName = '';
+          cardAddMode = false;
+        "
         v-resizable
       />
       <div class="flex w-full flex-row justify-start gap-2">
