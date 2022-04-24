@@ -27,6 +27,7 @@
 - [ ] Add tests to prevent any critical bugs
 - [ ] Custom backgrounds in board view
 - [x] JSON exporting of boards
+- [ ] Showcase website
 
 Open for any contributions or feature requests, though always keep in mind that I am still a student with limited time and I might not be able to process every request immediately.
 
