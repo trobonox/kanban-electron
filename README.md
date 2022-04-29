@@ -16,7 +16,8 @@
 
 ## 🌌 Showcase
 
-![image](https://user-images.githubusercontent.com/57040351/163267511-6cc8bd27-61c6-4cb9-8eaf-1455cdbe2d9c.png)
+https://user-images.githubusercontent.com/57040351/165910214-f2ec2657-39fb-4070-93b5-8a5278a50c8a.mp4
+
 
 ## 📋 Roadmap (planned features)
 
