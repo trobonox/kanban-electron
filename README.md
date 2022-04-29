@@ -12,7 +12,7 @@
   
 </p>
 
-**Please note:** There was a critical bug which could result board overrides in versions prior to 0.2.1-beta. Please update your version to 0.2.1-beta by downloading the latest release to be safe. Thanks for your understanding!
+**Please note:** There was a critical bug which could result in board overrides in versions prior to 0.2.1-beta. Please update your version to 0.2.1-beta by downloading the latest release to be safe. Thanks for your understanding!
 
 ## 🌌 Showcase
 
