@@ -14,6 +14,8 @@
 
 **Please note:** There was a critical bug which could result in board overrides in versions prior to 0.2.1-beta. Please update your version to 0.2.1-beta by downloading the latest release to be safe. Thanks for your understanding!
 
+Development is paused as a migration from Electron to Tauri is planned and will be started soon.
+
 ## 🌌 Showcase
 
 https://user-images.githubusercontent.com/57040351/165910214-f2ec2657-39fb-4070-93b5-8a5278a50c8a.mp4
