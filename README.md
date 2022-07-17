@@ -14,7 +14,7 @@
 
 **Please note:** There was a critical bug which could result in board overrides in versions prior to 0.2.1-beta. Please update your version to 0.2.1-beta by downloading the latest release to be safe. Thanks for your understanding!
 
-Development is paused as a migration from Electron to Tauri has been started (and will be made open source as soon as basic functionality is ready)
+Development is paused as a migration from Electron to Tauri has been started (and will be made open source as soon as basic functionality is ready). This rewrite will feature usage of Nuxt.js v3, Vite and (hopefully) more readable HTML templates.
 
 ## 🌌 Showcase
 
