@@ -12,11 +12,10 @@
   
 </p>
 
-**Please note:** There was a critical bug which could result in board overrides in versions prior to 0.2.1-beta. Please update your version to 0.2.1-beta by downloading the latest release to be safe. Thanks for your understanding!
+> **Warning**: There was a critical bug which could result in board overrides in versions prior to 0.2.1-beta. Please update your version to 0.2.1-beta by downloading the latest release to be safe. Thanks for your understanding!
 
-Development is paused as there is a rewritten version made with Nuxt.js version 3, TypeScript and Tauri, which prevents many Electron-related issues (especially on Linux and MacOS) and features a more modern tech stack and a refreshed design too. You can try out the new version here: https://github.com/trobonox/kanri
-
-This repo will remain open until Kanri is in a more complete state and it is advised for all Kanban Electron users to switch (feature parity has been achieved but thorough user testing is still awaited).
+> **Note**: Development is paused as there is a rewritten version made with Nuxt.js version 3, TypeScript and Tauri, which prevents many Electron-related issues (especially on Linux and MacOS) and features a more modern tech stack and a refreshed design too. You can try out the new version here: https://github.com/trobonox/kanri.
+> This repo will remain open until Kanri is in a more complete state and it is advised for all Kanban Electron users to switch (feature parity has been achieved but thorough user testing is still awaited).
 
 ## 🌌 Showcase
 
