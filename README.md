@@ -2,20 +2,12 @@
   <img src="https://user-images.githubusercontent.com/57040351/163876968-650582f9-1b15-42b3-88f9-80418ddcd840.png" width="90%" height="60%" alt="KanbanElectron Banner" />
   <br>
   <b> A cross-platform Kanban Board desktop application made with Electron & Nuxt.js, with a focus on simplicity and user experience. </b>
-  <br> <br>
-  <img src="https://github.com/trobonox/kanban-electron/workflows/Build/badge.svg" alt="GitHub Build Status" />
-  <br>
-  <img src="https://wakatime.com/badge/user/be365b36-3fc6-4949-a760-a882bf44aad7/project/e222a792-8ba1-4987-97bd-baec10aa63fb.svg" alt="Wakatime Project Hours" />
-  <br>
-  <img src="https://img.shields.io/github/license/trobonox/kanban-electron?style=flat)](https://opensource.org/licenses/MIT" alt="License Badge" />
-  <img src="https://img.shields.io/github/v/release/trobonox/kanban-electron" alt="Release Version Badge" />
   
 </p>
+**THIS PROJECT HAS BEEN DISCONTINUED IN FAVOUR OF A NEW VERSION*
+New version here: https://github.com/trobonox/kanri
+Features more features, a fresh tech stack and uses Tauri instead of Electron.
 
-> **Warning**: There was a critical bug which could result in board overrides in versions prior to 0.2.1-beta. Please update your version to 0.2.1-beta by downloading the latest release to be safe. Thanks for your understanding!
-
-> **Note**: Development is paused as there is a rewritten version made with Nuxt.js version 3, TypeScript and Tauri, which prevents many Electron-related issues (especially on Linux and MacOS) and features a more modern tech stack and a refreshed design too. You can try out the new version here: https://github.com/trobonox/kanri.
-> This repo will remain open until Kanri is in a more complete state and it is advised for all Kanban Electron users to switch (feature parity has been achieved but thorough user testing is still awaited).
 
 ## 🌌 Showcase
 
@@ -54,4 +46,4 @@ yarn build
 
 This project was generated with [electron-nuxt](https://github.com/michalzaq12/electron-nuxt) v1.8.1 using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about the original structure can be found [here](https://github.com/michalzaq12/electron-nuxt/blob/master/README.md).
 
-_Copyright (c) 2022 Trobonox_
+_Copyright (c) 2022-present Trobonox_
