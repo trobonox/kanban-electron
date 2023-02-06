@@ -4,9 +4,12 @@
   <b> A cross-platform Kanban Board desktop application made with Electron & Nuxt.js, with a focus on simplicity and user experience. </b>
   
 </p>
+
 **THIS PROJECT HAS BEEN DISCONTINUED IN FAVOUR OF A NEW VERSION**
+
 New version here: https://github.com/trobonox/kanri
-Features more features, a fresh tech stack and uses Tauri instead of Electron.
+
+Includes more features, a fresh tech stack and uses Tauri instead of Electron.
 
 
 ## 🌌 Showcase
